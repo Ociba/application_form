@@ -241,7 +241,7 @@
 
                                     <div class="checkout-detail">
                                         <div class="row g-4">
-                                            <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-122">
+                                            <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                 <div class="delivery-address-box">
                                                     <form wire:submit.prevent="AddInfo">
                                                         <div>
