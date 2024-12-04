@@ -80,7 +80,7 @@ class StartApplication extends Component
     Session::put('passport_expiry_date_year', $this->passport_expiry_date_year);
     Session::put('country_of_birth', $this->country_of_birth);
     // Navigate to step  5
-    //$this->currentStep = 5;
+    $this->currentStep = 5;
  }
    
    
