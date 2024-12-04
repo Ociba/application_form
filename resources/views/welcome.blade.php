@@ -41,11 +41,7 @@
     
 
     <!-- Checkout section Start -->
-    <section class="checkout-section-2 section-b-space order-detail">
-        <div class="container-fluid-lg">
             @livewire('start-application')
-        </div>
-    </section>
     <!-- Checkout section End -->
 
     <!-- Footer Section Start -->
