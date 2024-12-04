@@ -241,12 +241,12 @@
 
                                     <div class="checkout-detail">
                                         <div class="row g-4">
-                                            <div class="col-xxl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-122">
                                                 <div class="delivery-address-box">
                                                     <form wire:submit.prevent="AddInfo">
                                                         <div>
                                                             <div class="row">
-                                                                <div class="col-xxl-12 col-lg-12 col-sm-12 col-md-12">
+                                                                <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                                     <label>What is your nationality?</label>
                                                                     <select wire:model="nationality" class="form-select">
                                                                         <option>Select Country</option>
@@ -259,7 +259,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row mt-3">
-                                                                <div class="col-xxl-12 col-lg-12 col-sm-12 col-md-12">
+                                                                <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                     <label>Applying for</label>
                                                                     <select wire:model="visaType" class="form-select for-control mt-1">
                                                                         <option>Select One</option>
@@ -269,29 +269,28 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row mt-4">
-    <div class="col-xxl-12 col-lg-12 col-sm-12 col-md-12">
-        <div class="row">
-            <div class="col-xxl-6 col-lg-6 col-sm-12 mb-2">
-                <i class="fa fa-star"></i> <strong>Trust Pilot</strong> 
-                <i class="fa fa-star bg-dark text-white p-1"></i>
-                <i class="fa fa-star bg-dark text-white p-1"></i>
-                <i class="fa fa-star bg-dark text-white p-1"></i>
-                <i class="fa fa-star bg-dark text-white p-1"></i>
-                <i class="fa fa-star bg-dark text-white p-1"></i> &nbsp; + 50,000 Reviews
-            </div>
-            <div class="col-lg-6 col-xxl-6 col-sm-12">
-                <!-- Ensure button spans full width on smaller devices -->
-                <button href="#" class="gradient-button btn-sm w-100" type="submit" wire:loading.attr="disabled">
-                    <span wire:loading wire:target="AddInfo">
-                        <i class="fa fa-spinner fa-spin"></i>
-                    </span>
-                    <span wire:loading.remove wire:target="AddInfo">Start your application</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
+                                                                <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                    <div class="row">
+                                                                        <div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12 mb-2 text-center text-lg-start mb-2">
+                                                                            <i class="fa fa-star"></i> <strong>Trust Pilot</strong> 
+                                                                            <i class="fa fa-star bg-dark text-white p-1"></i>
+                                                                            <i class="fa fa-star bg-dark text-white p-1"></i>
+                                                                            <i class="fa fa-star bg-dark text-white p-1"></i>
+                                                                            <i class="fa fa-star bg-dark text-white p-1"></i>
+                                                                            <i class="fa fa-star bg-dark text-white p-1"></i> &nbsp; + 50,000 Reviews
+                                                                        </div>
+                                                                        <div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12">
+                                                                            <!-- Ensure button spans full width on smaller devices -->
+                                                                            <button href="#" class="gradient-button btn-sm w-100" type="submit" wire:loading.attr="disabled">
+                                                                                <span wire:loading wire:target="AddInfo">
+                                                                                    <i class="fa fa-spinner fa-spin"></i>
+                                                                                </span>
+                                                                                <span wire:loading.remove wire:target="AddInfo">Start your application</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                     </form>
                                                 </div>
                                             </div>
