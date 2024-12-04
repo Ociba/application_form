@@ -196,7 +196,23 @@
         margin-right: 0;
     }
 }
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .alert-content {
+        flex-direction: row; /* Keep the icon and text in a row */
+        align-items: center; /* Vertically align content */
+    }
 
+    .alert-icon {
+        padding-right: 15px; /* Keep spacing consistent */
+        border-right: 4px solid white; /* Ensure separator stays intact */
+        margin-right: 15px;
+    }
+
+    .alert-text p {
+        font-size: 14px; /* Slightly reduce font size for smaller screens */
+    }
+}
 
 </style>
 <!-- Start of Step 1 -->

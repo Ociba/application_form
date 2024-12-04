@@ -32,7 +32,7 @@ class StartApplication extends Component
         session()->flash('message', 'Information saved successfully!');
 
         // Navigate to step 2
-        //$this->currentStep = 2;
+        $this->currentStep = 2;
     }
  
     public function forgetSessionData()
