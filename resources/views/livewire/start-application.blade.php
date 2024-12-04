@@ -213,6 +213,41 @@
         font-size: 14px; /* Slightly reduce font size for smaller screens */
     }
 }
+@media (min-width: 992px) { /* Applies only to large devices (≥992px) */
+    .left-sidebar-checkout {
+        position: relative  ; /* Keeps the element in view as the user scrolls */
+         /* Adjust the offset from the top of the viewport */
+        height: auto; /* Ensures the height adapts to content */
+    }
+}
+input.form-control[type="date"] {
+    border-radius: 16px;
+    border: 1px solid #ccc; /* Optional: Customize the border */
+    padding: 10px 15px; /* Optional: Adjust padding for a better look */
+    font-size: 14px; /* Optional: Adjust font size */
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Optional: Remove default shadow */
+    width:100%;
+}
+
+input.form-control[type="date"]:focus {
+    border-color: #007bff; /* Optional: Border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add focus shadow */
+}
+
+input.form-control[type="email"] {
+    border-radius: 16px;
+    border: 1px solid #ccc; /* Optional: Customize the border */
+    padding: 10px 15px; /* Optional: Adjust padding for a better look */
+    font-size: 14px; /* Optional: Adjust font size */
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Optional: Remove default shadow */
+}
+
+input.form-control[type="email"]:focus {
+    border-color: #007bff; /* Optional: Border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add focus shadow */
+}
 
 </style>
 <!-- Start of Step 1 -->
@@ -220,7 +255,7 @@
 <section class="checkout-section-2 section-lg-space order-detail">
     <div class="container-fluid-lg">
         <div class="row g-sm-4 g-3">
-        <div class="banner">
+           <div class="banner">
                 <div class="banner-content">
                     <div class="banner-text">
                         <p>You’ve already started an order.</p>
@@ -233,7 +268,7 @@
             </div>
             <div class="col-lg-8">
 
-                <div class="left-sidebar-checkout">
+                <div class="left-sidebar-checkout sticky">
                     <div class="checkout-detail-box">
                         <ul>
                             <li>
@@ -346,28 +381,47 @@
                 </div>
                 {{--@endif--}}
             </div>
-            <button wire:click="forgetSessionData" class="btn btn-danger">Forget Session</button>
+            {{--<button wire:click="forgetSessionData" class="btn btn-danger">Forget Session</button>--}}
         </div>
     </div>
 </section>
 <!--End of step 1 -->
 @elseif ($currentStep == 2)
 <!-- Start of Step 2 -->
-<section class="order-detail">
+<section class="checkout-section-2 section-lg-space order-detail">
+<div class="container-fluid-lg">
+    <div class="row">
+        <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+            <h2 class="fw-bold">Uganda Tourist eVisa • 180 days, Single entry</h2>
+        </div>
+    </div>
     <div class="row g-sm-4 g-3">
         <div class="col-12 overflow-hidden">
             <ol class="progtrckr">
                 <li class="progtrckr-done">
-                    <h5>1</h5>
+                    <h5>Trip Details</h5>
                 </li>
                 <li class="progtrckr-todo">
-                    <h5>2</h5>
+                    <h5>Your Info</h5>
                 </li>
                 <li class="progtrckr-todo">
-                    <h5>3</h5>
+                    <h5>Checkout</h5>
                 </li>
             </ol>
         </div>
+    </div>
+    <div class="row mb-4 mt-4">
+            <div class="banner">
+                <div class="banner-content">
+                    <div class="banner-text">
+                        <p>You’ve already started an order.</p>
+                    </div>
+                    <div class="banner-actions">
+                        <button class="cta-button">Go to application</button>
+                        <button class="close-button" onclick="closeBanner()">✕</button>
+                    </div>
+                </div>
+            </div>
     </div>
     <form wire:submit.prevent="AddInfo2">
         <div class="row g-sm-4 g-3">
@@ -383,34 +437,33 @@
                                     <hr>
                                     <div class="checkout-detail">
                                         <div class="row g-4">
-                                            <div class="col-xxl-6 col-lg-12 col-md-6">
-                                                <div class="delivery-address-box">
+                                            <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                     <div>
-                                                        <ul class="delivery-address-detail">
-                                                            <li>
+                                                        <div class="row mt-3">
+                                                            <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                 <label>When do you arrive in Uganda?</label>
-                                                                <input type="date" class="form-control" placeholder="DD/MM/YYYY" wire:model="arrival_date" />
-                                                            </li>
-                                                            <li>
-                                                                <label>When do you leave Uganda?</label>
-                                                                <input type="date" class="form-control" placeholder="DD/MM/YYYY" wire:model="departure_date" />
-                                                            </li>
-                                                            <li>
+                                                                <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="departure_date" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-3">
+                                                            <div class="col-12  col-md-12 col-lg-12 col-sm-12">
+                                                                <label>When do you arrive in Uganda?</label>
+                                                                <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="arrival_date" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-3">
+                                                            <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                 <label>Email address</label>
-                                                                <input type="type" class="form-control" placeholder="johnsmith@gmail.com" wire:model="email" />
+                                                                <input type="email" class="form-control" placeholder="johnsmith@gmail.com" wire:model="email" />
                                                                 <small>We use this to create your iVisa account and send you updates about your application.</small>
-                                                            </li>
-                                                            <li>
-                                                                <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
-                                                                    <input class="form-check-input" type="checkbox" wire:model="receive_updates" id="receive_updates">
-                                                                    <label class="form-check-label ms-2" for="receive_updates">
-                                                                    I want to receive iVisa's updates, product launches and personalized offers. I can opt out anytime.</label>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
+                                                            <input class="form-check-input" type="checkbox" wire:model="receive_updates" id="receive_updates">
+                                                            <label class="form-check-label ms-2" for="receive_updates">
+                                                            I want to receive iVisa's updates, product launches and personalized offers. I can opt out anytime.</label>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,7 +493,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="right-side-summery-box">
-                        <div class="summery-box-2" style="background-color:#fff;">
+                        <div class="summery-box-2 border-0" style="background-color:#fff;">
                             <ul class="summery-contain">
                                 <li>
                                     <h5><span class="fw-bold">Total</span><br>
@@ -454,18 +507,21 @@
                         </div>
                     </div>
                 </div>
-                <button href="#" class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold" type="submit">
-                <span wire:loading wire:target="AddInfo2">
-                <i class="fa fa-spinner fa-spin"></i>
-                </span>
-                <span wire:loading.remove wire:target="AddInfo2">Save and continue</span>
-                </button>
+                <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-center">
+                    <button href="#" class="gradient-button btn-sm w-100d" type="submit">
+                    <span wire:loading wire:target="AddInfo2">
+                    <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                    <span wire:loading.remove wire:target="AddInfo2">Save and continue</span>
+                    </button>
+                </div>
                 <p><i class="fa fa-user-plus mt-3"></i> <span class="fw-bold">Your info is safe with us!</span></p>
                 <small>For more details see <a href="#!">how we keep your data safe</a></small>
                 <p><a href=""> <i class="fa fa-arrow-left"> </i> Previous</a></p>
             </div>
         </div>
     </form>
+    </div>
 </section>
 <!--End of Step 2-->
 @elseif ($currentStep == 3)
