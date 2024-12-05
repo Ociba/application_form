@@ -82,8 +82,26 @@ class StartApplication extends Component
     // Navigate to step  5
     $this->currentStep = 5;
  }
+   public function AddInfo5(){
+    logger('AddInfo5 executed');
+    $this->currentStep = 6;
+      
+   }
+
+   public function AddInfo6(){
+    // Navigate to step  5
+     $this->currentStep = 7;
+     
+ }
    
-   
+ public function goToPreviousStep()
+{
+    if ($this->currentStep > 1) {
+        $this->currentStep--;
+    }
+}
+
+
     public function render()
     {
         return view('livewire.start-application',[

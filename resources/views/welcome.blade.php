@@ -126,6 +126,7 @@
     <script src="{{ asset('assets/js/theme-setting.js')}}"></script>
 
     @livewireScripts
+    @livewire('wire-elements-modal')
     <script defer src="{{ asset('modal/css/cdn3.js')}}"></script>
     
  
