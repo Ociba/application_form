@@ -3,7 +3,7 @@
     <div class="row">
             <div class="card custom-card">
                 
-                <div class="card-body">
+                <div class="card-body" style="border-radius:10px;">
                 <div class="card-title">
                     <h2>Select Payment Method</h2>
                 </div>

@@ -511,10 +511,10 @@
                     <h2 class="fw-bold">Uganda Tourist eVisa • 180 days, Single entry</h2>
                 </div>
             </div>
-            <div class="row g-sm-4 g-3">
+            <div class="row g-sm-4 g-3 mt-3">
                 <div class="col-12 overflow-hidden">
                     <ol class="progtrckr">
-                        <li class="progtrckr-done">
+                        <li class="progtrckr-done ">
                             <h5>Trip Details</h5>
                         </li>
                         <li class="progtrckr-todo">
@@ -640,16 +640,16 @@
     <section class="checkout-section-2 section-lg-space order-detail">
         <div class="container-fluid-lg">
             <div class="row g-sm-4 g-3">
-                <div class="col-12 overflow-hidden">
+                <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
                     <ol class="progtrckr">
                         <li class="progtrckr-done">
-                            <h5>1</h5>
-                        </li>
-                        <li class="progtrckr-done">
-                            <h5>2</h5>
+                            <h5>Trip Details</h5>
                         </li>
                         <li class="progtrckr-todo">
-                            <h5>3</h5>
+                            <h5>Your Info</h5>
+                        </li>
+                        <li class="progtrckr-todo">
+                            <h5>Checkout</h5>
                         </li>
                     </ol>
                 </div>
@@ -735,12 +735,11 @@
                                                 <div class="checkout-title">
                                                     <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                                         <div class="row">
-                                                        
                                                             <div class="col-md-6 col-6 col-lg-6 col-sm-6">
-                                                            <h4>Traveler #{{ $loop->iteration + 1 }} Personal Details </h4>
+                                                               <h4>Traveler #{{ $loop->iteration + 1 }} Personal Details </h4>
                                                             </div>
                                                             <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
-                                                            <span wire:click="removeTraveler({{ $index }})" style="cursor: pointer; text-align:right;"><i class="fa fa-trash"></i></span>
+                                                               <span wire:click="removeTraveler({{ $index }})" style="cursor: pointer; text-align:right;"><i class="fa fa-trash"></i></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -867,19 +866,16 @@
     <section class="checkout-section-2 section-lg-space order-detail">
         <div class="container-fluid-lg">
             <div class="row g-sm-4 g-3">
-                <div class="col-12 overflow-hidden">
+                <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
                     <ol class="progtrckr">
                         <li class="progtrckr-done">
-                            <h5>1</h5>
-                        </li>
-                        <li class="progtrckr-done">
-                            <h5>2</h5>
-                        </li>
-                        <li class="progtrckr-done">
-                            <h5>3</h5>
+                            <h5>Trip Details</h5>
                         </li>
                         <li class="progtrckr-todo">
-                            <h5>4</h5>
+                            <h5>Your Info</h5>
+                        </li>
+                        <li class="progtrckr-todo">
+                            <h5>Checkout</h5>
                         </li>
                     </ol>
                 </div>
@@ -900,7 +896,7 @@
                                                 <hr class="mb-4">
                                                 <div class="checkout-detail">
                                                     <div class="row g-4">
-                                                        <div class="col-xxl-6 col-lg-12 col-md-6">
+                                                        <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                             <div class="delivery-address-box">
                                                                 <div>
 
@@ -1061,19 +1057,16 @@
     <section class="checkout-section-2 section-lg-space order-detail">
         <div class="container-fluid-lg">
             <div class="row g-sm-4 g-3">
-                <div class="col-12 overflow-hidden">
+                <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
                     <ol class="progtrckr">
                         <li class="progtrckr-done">
-                            <h5>1</h5>
+                            <h5>Trip Details</h5>
                         </li>
                         <li class="progtrckr-done">
-                            <h5>2</h5>
-                        </li>
-                        <li class="progtrckr-done">
-                            <h5>3</h5>
+                            <h5>Your Info</h5>
                         </li>
                         <li class="progtrckr-todo">
-                            <h5>4</h5>
+                            <h5>Checkout</h5>
                         </li>
                     </ol>
                 </div>
@@ -1155,12 +1148,16 @@
                             <div class="right-side-summery-box">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
-                                        <h3>
-                                            Uganda Tourist eVisa
-                                            <span style="font-weight:lighter;text-align:right;">
-                                                <h6>1 Traveler</h6>
-                                            </span>
-                                        </h3>
+                                        <div class="col-md-12 col-12 col-lg-12 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                                    <h3>Uganda Tourist eVisa</h3>
+                                                </div>
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <ul class="summery-contain">
                                         <li>
@@ -1305,12 +1302,16 @@
                             <div class="right-side-summery-box mb-5">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
-                                        <h3>
-                                            Uganda Tourist eVisa
-                                            <span style="font-weight:lighter;text-align:right;">
-                                                <h6>1 Traveler</h6>
-                                            </span>
-                                        </h3>
+                                        <div class="col-md-12 col-12 col-lg-12 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                                    <h3>Uganda Tourist eVisa</h3>
+                                                </div>
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <ul class="summery-contain">
                                         <li>
