@@ -4,9 +4,13 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class StartApplication extends Component
 {
+    public $travelers = [];
+    public $travelerCount = 1;
+
     public $nationality,$visaType,$arrival_date,$departure_date,$email, $first_and_middle_name,
            $last_name,$dob_day,$dob_month,$dob_year,$passport_nationality,$passport_expiry_date_day,$passport_number,
            $passport_expiry_date_month,$passport_expiry_date_year,$country_of_birth;
@@ -95,12 +99,37 @@ class StartApplication extends Component
  }
    
  public function goToPreviousStep()
-{
-    if ($this->currentStep > 1) {
-        $this->currentStep--;
+    {
+        if ($this->currentStep > 1) {
+            $this->currentStep--;
+        }
     }
-}
 
+
+    public function addTraveler()
+    {
+        $this->travelerCount++;    // Increment the traveler count
+        $this->travelers[] = [
+            'first_and_middle_name' => '',
+            'last_name' => '',
+            'dob_day' => '',
+            'dob_month' => '',
+            'dob_year' => ''
+        ];   // Add a new traveler with empty fields (or default values)
+        // Log to verify method is only being called once
+        Log::debug("addTraveler triggered. Current Count: {$this->travelerCount}");
+    }
+
+    public function removeTraveler($index)
+    {
+        if (isset($this->travelers[$index])) {
+            unset($this->travelers[$index]); // Remove traveler from the list
+            $this->travelers = array_values($this->travelers); // Re-index array
+            if ($this->travelerCount > 1) {
+                $this->travelerCount--; // Decrement the count
+            }
+        }
+    }
 
     public function render()
     {

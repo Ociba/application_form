@@ -338,6 +338,23 @@
         .capitalize {
             font-weight: bold;
         }
+        .add-another-traveler-button {
+            background-color: #add8e6;
+            color: #000000;
+            padding: 8px;
+            width: 100%;
+            border-radius: 16px;
+        }
+        /* Custom CSS for layout */
+        .traveler-details {
+            display: flex; /* Enables flex layout */
+            justify-content: space-between; /* Pushes content to edges */
+            align-items: center; /* Aligns vertically */
+        }
+
+        .remove-icon {
+            margin-right: auto; /* Pushes the span to the far right */
+        }
     </style>
     <!-- Start of Step 1 -->
     @if ($currentStep == 1)
@@ -447,7 +464,17 @@
                     <div class="right-side-summery-box">
                         <div class="summery-box-2">
                             <div class="summery-header">
-                                <h3>Uganda Tourist eVisa <span style="background-color:#b0c4de; padding:3px; border-radius:10px; color:fff;font-size:12px;">Most popular</span></h3>
+                                <div class="col-md-12 col-12 col-lg-12 col-sm-12">
+                                    <div class="row">
+                                    
+                                        <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                           <h3>Uganda Tourist eVisa </h3>
+                                        </div>
+                                        <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                           <span style="background-color:#b0c4de; padding:3px; border-radius:10px; color:fff;font-size:12px;text-align:right;">Most popular</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <ul class="summery-contain">
                                 <li>
@@ -527,7 +554,14 @@
                                                                     <label>When do you arrive in Uganda?</label>
                                                                     <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="arrival_date" />
                                                                 </div>
+                                                                <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
+                                                                    <input class="form-check-input" type="checkbox" wire:model="receive_updates" id="receive_updates">
+                                                                    <label class="form-check-label ms-2" for="receive_updates">
+                                                                                I acknowledge that I need to provide a Yellow Fever Vaccination Card as part of the process, which must be issued at least 10 days after the vaccination date.
+                                                                    </label>
+                                                                </div>
                                                             </div>
+
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                     <label>Email address</label>
@@ -695,6 +729,77 @@
                                                     </div>
                                                 </div>
                                         </li>
+                                        @foreach ($travelers as $index => $traveler)
+                                        <li>
+                                            <div class="checkout-box bg-white mt-2">
+                                                <div class="checkout-title">
+                                                    <div class="col-md-12 col-12 col-lg-12 col-sm-12">
+                                                        <div class="row">
+                                                        
+                                                            <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                                            <h4>Traveler #{{ $loop->iteration + 1 }} Personal Details </h4>
+                                                            </div>
+                                                            <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                                            <span wire:click="removeTraveler({{ $index }})" style="cursor: pointer; text-align:right;"><i class="fa fa-trash"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="mb-2">These should match what's in your passport.</p>
+                                                <hr class="mb-4">
+                                                <div class="checkout-detail">
+                                                    <div class="row g-4">
+                                                        <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+                                                            <div>
+                                                                <div class="row mt-3">
+                                                                    <div class="col-12  col-md-12 col-lg-12 col-sm-12">
+                                                                        <label>First and middle name</label>
+                                                                        <input type="text" class="form-control" placeholder="John William" wire:model="travelers.{{ $index }}.first_and_middle_name" />
+                                                                        <small>If you have a middle name, please include it.</small>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-3">
+                                                                    <div class="col-12  col-md-12 col-lg-12 col-sm-12">
+                                                                        <label>Last Name</label>
+                                                                        <input type="text" class="form-control" placeholder="John William"  wire:model="travelers.{{ $index }}.last_name" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-sm-12 col-md-12">
+                                                                    <div class="row">
+                                                                        <label>Date of birth</label>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-select mt-2" placeholder="Day" wire:model="travelers.{{ $index }}.dob_day">
+                                                                                <option>Day</option>
+                                                                                @for ($day = 1; $day <= 31; $day++)
+                                                                                    <option value="{{ $day }}">{{ $day }}</option>
+                                                                                @endfor
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-select mt-2" placeholder="Month"  wire:model="travelers.{{ $index }}.dob_month">
+                                                                                <option>Month</option>
+                                                                                @foreach (['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
+                                                                                    <option value="{{ $month }}">{{ $month }}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-select mt-2" placeholder="Year"  wire:model="travelers.{{ $index }}.dob_year">
+                                                                                <option>Year</option>
+                                                                                @for ($year = date('Y'); $year >= 1900; $year--)
+                                                                                    <option value="{{ $year }}">{{ $year }}</option>
+                                                                                @endfor
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </li>
+                                        @endforeach
+                                        <button class="btn add-another-traveler-button mt-4"  type="button"  wire:click="addTraveler"><i class="fa fa-plus-circle"></i> Add Another traveler</button>
                                     </ul>
                                 </div>
                             </div>
@@ -703,12 +808,16 @@
                             <div class="right-side-summery-box">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
-                                        <h3>
-                                            Uganda Tourist eVisa
-                                            <span style="font-weight:lighter;">
-                                                <h6>1 Traveler</h6>
-                                            </span>
-                                        </h3>
+                                        <div class="col-md-12 col-12 col-lg-12 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                                    <h3>Uganda Tourist eVisa</h3>
+                                                </div>
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <ul class="summery-contain">
                                         <li>
@@ -894,12 +1003,16 @@
                             <div class="right-side-summery-box">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
-                                        <h3>
-                                            Uganda Tourist eVisa
-                                            <span style="font-weight:lighter;">
-                                                <h6>1 Traveler</h6>
-                                            </span>
-                                        </h3>
+                                        <div class="col-md-12 col-12 col-lg-12 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                                    <h3>Uganda Tourist eVisa</h3>
+                                                </div>
+                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <ul class="summery-contain">
                                         <li>
