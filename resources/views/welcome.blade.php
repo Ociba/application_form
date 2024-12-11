@@ -44,6 +44,137 @@
             @livewire('start-application')
     <!-- Checkout section End -->
 
+    <div class="container">
+        <h2>Submit Order Request</h2>
+        <form method="POST" action="{{ route('submit.order') }}">
+            @csrf
+
+            <!-- Order ID -->
+            <div class="form-group">
+                <label for="id">Order ID</label>
+                <input type="text" name="id" id="id" class="form-control" required>
+            </div>
+
+            <!-- Currency -->
+            <div class="form-group">
+                <label for="currency">Currency</label>
+                <select name="currency" id="currency" class="form-control" required>
+                    <option value="KES">KES</option>
+                    <option value="USD">USD</option>
+                    <!-- Add other currencies as needed -->
+                </select>
+            </div>
+
+            <!-- Amount -->
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" name="amount" id="amount" class="form-control" required step="0.01">
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <!-- Callback URL -->
+            <div class="form-group">
+                <label for="callback_url">Callback URL</label>
+                <input type="url" name="callback_url" id="callback_url" class="form-control" required>
+            </div>
+
+            <!-- Redirect Mode -->
+            <div class="form-group">
+                <label for="redirect_mode">Redirect Mode</label>
+                <select name="redirect_mode" id="redirect_mode" class="form-control">
+                    <option value="POST">POST</option>
+                    <option value="GET">GET</option>
+                </select>
+            </div>
+
+            <!-- Notification ID -->
+            <div class="form-group">
+                <label for="notification_id">Notification ID</label>
+                <input type="text" name="notification_id" id="notification_id" class="form-control" value="{{ old('notification_id', $ipnId) }}" required>
+            </div>
+
+            <!-- Branch -->
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <input type="text" name="branch" id="branch" class="form-control">
+            </div>
+
+            <!-- Billing Address -->
+            <h4>Billing Address</h4>
+
+            <div class="form-group">
+                <label for="billing_address.email_address">Email Address</label>
+                <input type="email" name="billing_address[email_address]" id="billing_address.email_address" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.phone_number">Phone Number</label>
+                <input type="tel" name="billing_address[phone_number]" id="billing_address.phone_number" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.country_code">Country Code</label>
+                <input type="text" name="billing_address[country_code]" id="billing_address.country_code" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.first_name">First Name</label>
+                <input type="text" name="billing_address[first_name]" id="billing_address.first_name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.middle_name">Middle Name</label>
+                <input type="text" name="billing_address[middle_name]" id="billing_address.middle_name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.last_name">Last Name</label>
+                <input type="text" name="billing_address[last_name]" id="billing_address.last_name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.line_1">Address Line 1</label>
+                <input type="text" name="billing_address[line_1]" id="billing_address.line_1" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.line_2">Address Line 2</label>
+                <input type="text" name="billing_address[line_2]" id="billing_address.line_2" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.city">City</label>
+                <input type="text" name="billing_address[city]" id="billing_address.city" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.state">State</label>
+                <input type="text" name="billing_address[state]" id="billing_address.state" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.postal_code">Postal Code</label>
+                <input type="text" name="billing_address[postal_code]" id="billing_address.postal_code" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="billing_address.zip_code">Zip Code</label>
+                <input type="text" name="billing_address[zip_code]" id="billing_address.zip_code" class="form-control">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Order</button>
+            </div>
+        </form>
+    </div>
+
+   
     <!-- Footer Section Start -->
     <footer class="section-t-space">
         <div class="container-fluid-lg">
@@ -129,7 +260,41 @@
     @livewire('wire-elements-modal')
     <script defer src="{{ asset('modal/css/cdn3.js')}}"></script>
     
- 
+ <script>
+    // Submit the order and handle the response
+fetch('https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId={orderTrackingId}', {
+    method: 'GET',
+    // Include necessary request data (if any)
+    body: JSON.stringify({
+        // Your order data here
+    }),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Extract order_tracking_id from the response data
+            const orderTrackingId = data.data.order_tracking_id;
+
+            // Construct the URL to your Laravel route using the order_tracking_id
+            const orderStatusUrl = `/order-status/${orderTrackingId}`;
+
+            // Redirect to the order status page
+            window.location.href = orderStatusUrl;
+        } else {
+            // Handle order submission failure
+            console.error('Order submission failed:', data.message);
+        }
+    })
+    .catch(error => {
+        // Handle error during the order submission
+        console.error('Error submitting order:', error);
+    });
+
+
+ </script>
 </body>
 
 </html>

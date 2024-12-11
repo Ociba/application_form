@@ -2,19 +2,20 @@
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <style>
         .gradient-button {
-            background: linear-gradient(45deg, #25CBD6, #00EE8A);
+            background: linear-gradient(45deg, #4784ff, #1f5bce);
             border: none;
             border-radius: 14px;
-            color: white;
-            padding: 15px 30px;
-            font-size: 16px;
+            color: #ffffff;
+            padding: 16px 40px;
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 54px;
             cursor: pointer;
             transition: background 0.3s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
-            height: 45px;
+            height: 55px;
             /* Set a fixed height */
             min-width: 180px;
             /* Ensure consistent width */
@@ -28,7 +29,7 @@
 
         .btn-sm {
             padding: 10px 12px;
-            font-size: 16px;
+            font-size: 20px;
         }
 
         /* Medium Button */
@@ -63,9 +64,9 @@
 
         /* Banner container */
         .banner {
-            background-color: #000000;
+            background-color: #2349a1;
             color: white;
-            padding: 10px 20px;
+            padding: 17px 20px;
             border-radius: 15px;
             display: flex;
             justify-content: space-between;
@@ -99,7 +100,7 @@
         /* Call-to-action button */
         .cta-button {
 
-            background: linear-gradient(45deg, #25CBD6, #00EE8A);
+            background: linear-gradient(45deg, #4784ff, #1f5bce);
             border: none;
             color: white;
             border-radius: 10px;
@@ -152,12 +153,13 @@
 
         /* Main alert banner container */
         .alert-banner {
-            background-color: #add8e6;
+            /* background-color: #add8e6; */
+            background-color:#4784ff;
             color: #721c24;
-            padding: 3px 20px;
+            padding: 20px 20px;
             font-family: Arial, sans-serif;
             border: 1px solid #add8e6;
-            border-radius: 5px;
+            border-radius: 20px;
             width: 100%;
             margin: 20px 0;
         }
@@ -355,6 +357,15 @@
         .remove-icon {
             margin-right: auto; /* Pushes the span to the far right */
         }
+        .labels {
+            color: rgb(66 102 113 / var(--tw-text-opacity));
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 24px;
+        }
+        .small {
+            font-size: 0.80rem;
+        }
     </style>
     <!-- Start of Step 1 -->
     @if ($currentStep == 1)
@@ -372,26 +383,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-7">
 
                     <div class="left-sidebar-checkout sticky">
                         <div class="checkout-detail-box">
                             <ul>
                                 <li>
                                     <div class="checkout-box bg-white">
-                                        <div class="checkout-title">
-                                            <h4>Apply now for your Uganda Tourist eVisa</h4>
+                                        <div class="checkout-title mb-4">
+                                            <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Apply now for your Uganda Tourist eVisa</h2>
                                         </div>
-                                        <hr class="mb-4">
                                         <div class="alert-banner">
                                             <div class="alert-content">
                                                 <div class="alert-icon">
-                                                    <img src="{{ asset('visa.png')}}" style="width:50px; height:60px;">
+                                                    <img src="{{ asset('visa.png')}}" style="width:40px; height:40px;">
                                                 </div>
                                                 <div class="separator"></div> <!-- White space separator -->
                                                 <div class="alert-text">
                                                     <span class="fw-bold">Visa required</span>
-                                                    <p>You need a visa to travel to Uganda if you have a passport from Canada.</p>
+                                                    <p><small class="small">You need a visa to travel to Uganda if you have a passport from Canada.</small></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -404,21 +414,21 @@
                                                             <div>
                                                                 <div class="row">
                                                                     <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
-                                                                        <label>What is your nationality?</label>
-                                                                        <select wire:model="nationality" class="form-select">
-                                                                            <option>Select Country</option>
+                                                                        <label class="labels">What is your nationality?</label>
+                                                                        <select wire:model="nationality" class="form-select mt-1" style="border-radius:18px;">
+                                                                            <option style="font-weight:bold;">Select Country</option>
                                                                             <option value="Uganda">Uganda - UG</option>
                                                                             <option value="Kenya">Kenya - KE</option>
                                                                             <option value="Rwanda">Rwanda -Rw</option>
                                                                             <option value="Congo">Congo- DRC</option>
                                                                         </select>
-                                                                        <small>Ensure you select the nationality of the passport you'll be traveling with.</small>
+                                                                        <small class="small">Ensure you select the nationality of the passport you'll be traveling with.</small>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                        <label>Applying for</label>
-                                                                        <select wire:model="visaType" class="form-select for-control mt-1">
+                                                                        <label class="labels">Applying for</label>
+                                                                        <select wire:model="visaType" class="form-select for-control mt-1" style="border-radius:18px;">
                                                                             <option>Select One</option>
                                                                             <option value="Uganda Tourist evisa-180 days, Single entry">Uganda Tourist evisa-180 days, Single entry</option>
                                                                             <option value="Uganda East Africa visa - 180 days, Multiple entry">Uganda East Africa visa - 180 days, Multiple entry</option>
@@ -428,15 +438,15 @@
                                                                 <div class="row mt-4">
                                                                     <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12">
                                                                         <div class="row">
-                                                                            <div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12 mb-2 text-center text-lg-start mb-2">
-                                                                                <i class="fa fa-star"></i> <strong>Trust Pilot</strong>
+                                                                            <div class="col-xxl-7 col-lg-7 col-md-7 col-sm-12 mb-2 text-center text-lg-start mb-2">
+                                                                                <i class="fa fa-star"></i> <strong>Tripple Advisor</strong>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
-                                                                                <i class="fa fa-star bg-dark text-white p-1"></i> &nbsp; + 50,000 Reviews
+                                                                                <i class="fa fa-star bg-dark text-white p-1"></i> &nbsp; <i style="font-size:10px;">+ 50,000 Reviews</i>
                                                                             </div>
-                                                                            <div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12">
+                                                                            <div class="col-xxl-5 col-lg-5 col-md-5 col-sm-12">
                                                                                 <!-- Ensure button spans full width on smaller devices -->
                                                                                 <button href="#" class="gradient-button btn-sm w-100" type="submit" wire:loading.attr="disabled">
                                                                                     <span wire:loading wire:target="AddInfo">
@@ -459,6 +469,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     {{--@if (session('nationality') && session('visaType'))--}}
                     <div class="right-side-summery-box">
@@ -466,11 +477,10 @@
                             <div class="summery-header">
                                 <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                     <div class="row">
-                                    
-                                        <div class="col-md-6 col-6 col-lg-6 col-sm-6">
-                                           <h3>Uganda Tourist eVisa </h3>
+                                        <div class="col-md-8 col-8 col-lg-8 col-sm-8">
+                                           <h3 style="font-size: 1.25rem;font-weight: 700;line-height: 28px;">Uganda Tourist eVisa </h3>
                                         </div>
-                                        <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
+                                        <div class="col-md-4 col-4 col-lg-4 col-sm-4" style="text-align:right;">
                                            <span style="background-color:#b0c4de; padding:3px; border-radius:10px; color:fff;font-size:12px;text-align:right;">Most popular</span>
                                         </div>
                                     </div>
