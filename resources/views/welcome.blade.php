@@ -44,7 +44,7 @@
             @livewire('start-application')
     <!-- Checkout section End -->
 
-    <div class="container">
+    {{--<div class="container">
         <h2>Submit Order Request</h2>
         <form method="POST" action="{{ route('submit.order') }}">
             @csrf
@@ -172,7 +172,7 @@
                 <button type="submit" class="btn btn-primary">Submit Order</button>
             </div>
         </form>
-    </div>
+    </div>--}}
 
    
     <!-- Footer Section Start -->

@@ -5,11 +5,16 @@ namespace App\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+//use Illuminate\Support\Facades\Http;
+//use Rinvex\Country\CountryLoader;
 
 class StartApplication extends Component
 {
     public $travelers = [];
     public $travelerCount = 1;
+    public $days = [];
+    public $countries;
+    public $skip_passport = false;
 
     public $nationality,$visaType,$arrival_date,$departure_date,$email, $first_and_middle_name,
            $last_name,$dob_day,$dob_month,$dob_year,$passport_nationality,$passport_expiry_date_day,$passport_number,
@@ -24,6 +29,15 @@ class StartApplication extends Component
         // Load session data if it exists
         $this->nationality = Session::get('nationality');
         $this->visaType = Session::get('visaType');
+        $this->calculateDaysInMonth(date('Y'), date('m'));
+        //This is api for getting countries in the world
+
+        $this->countries = collect(countries())->map(function ($country) {
+            return [
+                'name' => $country['name']['common'] ?? $country['name'], // Adjust based on actual structure
+                'code' => $country['iso_3166_1_alpha2'] ?? $country['code'], // Adjust based on actual structure
+            ];
+        })->toArray();
     }
 
     public function AddInfo()
@@ -129,6 +143,24 @@ class StartApplication extends Component
                 $this->travelerCount--; // Decrement the count
             }
         }
+    }
+
+
+    public function updatedDobMonth($month)
+    {
+        // Ensure the month is in numeric format for proper calculation
+        $monthNumber = date('n', strtotime($month . ' 1 2023'));
+        $this->calculateDaysInMonth($this->dob_year ?? date('Y'), $monthNumber);
+    }
+
+    public function updatedDobYear($year)
+    {
+        $this->calculateDaysInMonth($year, date('n', strtotime($this->dob_month . ' 1 2023')));
+    }
+
+    public function calculateDaysInMonth($year, $month)
+    {
+        $this->days = range(1, cal_days_in_month(CAL_GREGORIAN, $month, $year));
     }
 
     public function render()

@@ -154,7 +154,7 @@
         /* Main alert banner container */
         .alert-banner {
             /* background-color: #add8e6; */
-            background-color:#4784ff;
+            background-color: #4784ff;
             color: #721c24;
             padding: 20px 20px;
             font-family: Arial, sans-serif;
@@ -251,7 +251,7 @@
 
         input.form-control[type="date"] {
             border-radius: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #00809D;
             /* Optional: Customize the border */
             padding: 10px 15px;
             /* Optional: Adjust padding for a better look */
@@ -262,10 +262,14 @@
             box-shadow: none;
             /* Optional: Remove default shadow */
             width: 100%;
+            text-transform: uppercase;
+            color: #adb5bd;
+            /* Lighter gray */
+            opacity: 0.8;
         }
 
         input.form-control[type="date"]:focus {
-            border-color: #007bff;
+            border-color: #00809D;
             /* Optional: Border color on focus */
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
             /* Optional: Add focus shadow */
@@ -273,20 +277,23 @@
 
         input.form-control[type="email"] {
             border-radius: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #00809D;
             /* Optional: Customize the border */
-            padding: 10px 15px;
+            padding: 5px 15px;
             /* Optional: Adjust padding for a better look */
-            font-size: 14px;
+            font-size: 18px;
             /* Optional: Adjust font size */
             outline: none;
             /* Remove focus outline */
             box-shadow: none;
             /* Optional: Remove default shadow */
+            color: #adb5bd;
+            /* Lighter gray */
+            opacity: 0.8;
         }
 
         input.form-control[type="email"]:focus {
-            border-color: #007bff;
+            border-color: #00809D;
             /* Optional: Border color on focus */
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
             /* Optional: Add focus shadow */
@@ -294,30 +301,40 @@
 
         input.form-control[type="text"] {
             border-radius: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #00809D;
             /* Optional: Customize the border */
-            padding: 10px 15px;
+            padding: 5px 15px;
             /* Optional: Adjust padding for a better look */
-            font-size: 14px;
+            font-size: 18px;
             /* Optional: Adjust font size */
             outline: none;
             /* Remove focus outline */
             box-shadow: none;
             /* Optional: Remove default shadow */
+            text-transform: capitalize;
+            color: #adb5bd;
+            /* Lighter gray */
+            opacity: 0.8;
         }
 
         input.form-control[type="text"]:focus {
-            border-color: #007bff;
+            border-color: #00809D;
             /* Optional: Border color on focus */
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
             /* Optional: Add focus shadow */
         }
 
+        .option {
+            color: #adb5bd;
+            /* Lighter gray */
+            opacity: 0.8;
+        }
+
         .custom-card {
-            border: 2px solid #DBE2E9;
+            border: 2px solid #000000;
             /* Default border color */
             border-radius: 16px;
-            background-color: white;
+            background-color: #f8f8f9;
             /* Default background */
             transition: all 0.3s ease-in-out;
             /* Smooth transition for hover and focus */
@@ -327,42 +344,51 @@
         .custom-card:hover {
             border-color: #000000;
             /* Change border to black on hover */
-            background-color: #DBE2E9;
+            background-color: #f8f8f9;
             /* Change background to light blue on hover */
         }
 
         .custom-card:active {
             border-color: #000000;
             /* Change border to black on click */
-            background-color: #DBE2E9;
+            background-color: #f8f8f9;
             /* Change background to light blue on click */
         }
+
         .capitalize {
             font-weight: bold;
         }
+
         .add-another-traveler-button {
             background-color: #add8e6;
-            color: #000000;
-            padding: 8px;
+            color: blue;
+            padding: 14px;
             width: 100%;
             border-radius: 16px;
         }
+
         /* Custom CSS for layout */
         .traveler-details {
-            display: flex; /* Enables flex layout */
-            justify-content: space-between; /* Pushes content to edges */
-            align-items: center; /* Aligns vertically */
+            display: flex;
+            /* Enables flex layout */
+            justify-content: space-between;
+            /* Pushes content to edges */
+            align-items: center;
+            /* Aligns vertically */
         }
 
         .remove-icon {
-            margin-right: auto; /* Pushes the span to the far right */
+            margin-right: auto;
+            /* Pushes the span to the far right */
         }
+
         .labels {
             color: rgb(66 102 113 / var(--tw-text-opacity));
             font-size: 0.95rem;
             font-weight: 500;
             line-height: 24px;
         }
+
         .small {
             font-size: 0.80rem;
         }
@@ -391,7 +417,7 @@
                                 <li>
                                     <div class="checkout-box bg-white">
                                         <div class="checkout-title mb-4">
-                                            <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Apply now for your Uganda Tourist eVisa</h2>
+                                            <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Apply now for your Uganda Tourist eVisa</h4>
                                         </div>
                                         <div class="alert-banner">
                                             <div class="alert-content">
@@ -415,20 +441,18 @@
                                                                 <div class="row">
                                                                     <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                                         <label class="labels">What is your nationality?</label>
-                                                                        <select wire:model="nationality" class="form-select mt-1" style="border-radius:18px;">
-                                                                            <option style="font-weight:bold;">Select Country</option>
-                                                                            <option value="Uganda">Uganda - UG</option>
-                                                                            <option value="Kenya">Kenya - KE</option>
-                                                                            <option value="Rwanda">Rwanda -Rw</option>
-                                                                            <option value="Congo">Congo- DRC</option>
+                                                                        <select wire:model="nationality" class="form-select mt-1" style="border-radius:18px;" required>
+                                                                            @foreach($countries as $country)
+                                                                            <option value="{{ $country['code'] }}">{{ $country['name'] }} - {{ $country['code'] }} </option>
+                                                                            @endforeach
                                                                         </select>
-                                                                        <small class="small">Ensure you select the nationality of the passport you'll be traveling with.</small>
                                                                     </div>
+                                                                    <small class="small mt-3">Ensure you select the nationality of the passport you'll be traveling with.</small>
                                                                 </div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                         <label class="labels">Applying for</label>
-                                                                        <select wire:model="visaType" class="form-select for-control mt-1" style="border-radius:18px;">
+                                                                        <select wire:model="visaType" class="form-select for-control mt-1" style="border-radius:18px;" required>
                                                                             <option>Select One</option>
                                                                             <option value="Uganda Tourist evisa-180 days, Single entry">Uganda Tourist evisa-180 days, Single entry</option>
                                                                             <option value="Uganda East Africa visa - 180 days, Multiple entry">Uganda East Africa visa - 180 days, Multiple entry</option>
@@ -472,16 +496,16 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     {{--@if (session('nationality') && session('visaType'))--}}
-                    <div class="right-side-summery-box">
+                    <div class="right-side-summery-box mt-5">
                         <div class="summery-box-2">
                             <div class="summery-header">
                                 <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                     <div class="row">
                                         <div class="col-md-8 col-8 col-lg-8 col-sm-8">
-                                           <h3 style="font-size: 1.25rem;font-weight: 700;line-height: 28px;">Uganda Tourist eVisa </h3>
+                                            <h3 style="font-size: 1.25rem;font-weight: 700;line-height: 28px;">Uganda Tourist eVisa </h3>
                                         </div>
                                         <div class="col-md-4 col-4 col-lg-4 col-sm-4" style="text-align:right;">
-                                           <span style="background-color:#b0c4de; padding:3px; border-radius:10px; color:fff;font-size:12px;text-align:right;">Most popular</span>
+                                            <span style="background-color:#b0c4de; padding:3px; border-radius:10px; color:fff;font-size:12px;text-align:right;">Most popular</span>
                                         </div>
                                     </div>
                                 </div>
@@ -539,51 +563,50 @@
             @livewire('go-to-application-banner')
             <form wire:submit.prevent="AddInfo2">
                 <div class="row g-sm-4 g-3">
-                    <div class="col-lg-8">
+                    <div class="col-lg-7">
                         <div class="left-sidebar-checkout">
                             <div class="checkout-detail-box">
                                 <ul>
                                     <li>
                                         <div class="checkout-box bg-white">
                                             <div class="checkout-title">
-                                                <h4>Your Trip Details</h4>
+                                                <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Your Trip Details</h4>
                                             </div>
-                                            <hr>
                                             <div class="checkout-detail">
                                                 <div class="row g-4">
                                                     <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                         <div>
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                    <label>When do you arrive in Uganda?</label>
+                                                                    <label class="labels">When do you arrive in Uganda?</label>
                                                                     <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="departure_date" />
                                                                 </div>
                                                             </div>
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                    <label>When do you arrive in Uganda?</label>
+                                                                    <label class="labels">When do you leave in Uganda?</label>
                                                                     <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="arrival_date" />
                                                                 </div>
-                                                                <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
-                                                                    <input class="form-check-input" type="checkbox" wire:model="receive_updates" id="receive_updates">
-                                                                    <label class="form-check-label ms-2" for="receive_updates">
-                                                                                I acknowledge that I need to provide a Yellow Fever Vaccination Card as part of the process, which must be issued at least 10 days after the vaccination date.
-                                                                    </label>
-                                                                </div>
+                                                            </div>
+                                                            <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
+                                                                <input class="form-check-input" style="border-radius:6px;" type="checkbox" wire:model="receive_updates" id="receive_updates">
+                                                                <label class="form-check-label ms-2" for="receive_updates">
+
+                                                                    I acknowledge that I need to provide a Yellow Fever Vaccination Card as part of the process, which must be issued at least 10 days after the vaccination date</label>
                                                             </div>
 
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                    <label>Email address</label>
-                                                                    <input type="email" class="form-control" placeholder="johnsmith@gmail.com" wire:model="email" />
-                                                                    <small>We use this to create your iVisa account and send you updates about your application.</small>
+                                                                    <label class="labels">Email address</label>
+                                                                    <input type="email" class="form-control mt-2" placeholder="johnsmith@gmail.com" wire:model="email" />
                                                                 </div>
+                                                                <small class="small mt-2">We use this to update you on your application..</small>
                                                             </div>
 
-                                                            <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
-                                                                <input class="form-check-input" type="checkbox" wire:model="receive_updates" id="receive_updates">
+                                                            <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
+                                                                <input class="form-check-input" style="border-radius:6px;" type="checkbox" wire:model="receive_updates" id="receive_updates">
                                                                 <label class="form-check-label ms-2" for="receive_updates">
-                                                                    I want to receive iVisa's updates, product launches and personalized offers. I can opt out anytime.</label>
+                                                                    I want to receive Bar-Travel's updates, product launches and personalized offers. I can opt out anytime.</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -595,16 +618,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-1"></div>
                     <div class="col-lg-4">
-                        <div class="right-side-summery-box">
+                        <div class="right-side-summery-box mt-5">
                             <div class="summery-box-2">
                                 <div class="summery-header">
-                                    <h3>Uganda Tourist eVisa</h3>
+                                    <h3 style="font-size: 1.25rem;font-weight: 700;line-height: 28px;">Uganda Tourist eVisa </h3>
                                 </div>
                                 <ul class="summery-contain">
                                     <li>
                                         <h5>+ Government fees</h5>
-                                        <h4 class="price">USh 200130.00</h4>
+                                        <h4 class="price">USD 200130.00</h4>
                                     </li>
                                 </ul>
                             </div>
@@ -636,9 +660,9 @@
                                 <span wire:loading.remove wire:target="AddInfo2">Save and continue</span>
                             </button>
                         </div>
-                        <p><i class="fa fa-user-plus mt-3"></i> <span class="fw-bold">Your info is safe with us!</span></p>
-                        <small>For more details see <a href="#!">how we keep your data safe</a></small>
-                        <p><a href="#!" wire:click="goToPreviousStep"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
+                        <p><i class="fa fa-user-plus mt-3"></i> <span style="font-weight:bold; font-size:16px;">Your info is safe with us!</span></p>
+                        <small class="small mt-3">For more details see <a href="#!" style="color:blue; text-decoration:underline;">how we keep your data safe</a></small>
+                        <p class="mt-4"><a href="#!" wire:click="goToPreviousStep" style="color:blue; font-size:18px; font-weight:bold;"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
                     </div>
                 </div>
             </form>
@@ -649,6 +673,11 @@
     <!-- Start of Step 3 -->
     <section class="checkout-section-2 section-lg-space order-detail">
         <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+                    <h2 class="fw-bold">Uganda Tourist eVisa • 180 days, Single entry</h2>
+                </div>
+            </div>
             <div class="row g-sm-4 g-3">
                 <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
                     <ol class="progtrckr">
@@ -668,68 +697,60 @@
                 @livewire('go-to-application-banner')
                 <form wire:submit.prevent="AddInfo3">
                     <div class="row g-sm-4 g-3">
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="left-sidebar-checkout">
                                 <div class="checkout-detail-box">
                                     <ul>
                                         <li>
                                             <div class="checkout-box bg-white">
                                                 <div class="checkout-title">
-                                                    <h4>Your Personal Details</h4>
+                                                    <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Your Personal Details</h4>
                                                 </div>
-                                                <p class="mb-2">Your Personal Details</p>
-                                                <hr class="mb-4">
+                                                <p class="mb-4" style="font-size:18px;">This should match what's in your Passport</p>
                                                 <div class="checkout-detail">
                                                     <div class="row g-4">
                                                         <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                             <div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                        <label>First and middle name</label>
-                                                                        <input type="text" class="form-control" placeholder="John William" wire:model="first_and_middle_name" />
-                                                                        <small>If you have a middle name, please include it.</small>
+                                                                        <div class="form-group">
+                                                                            <label class="labels">First and middle name</label>
+                                                                            <input type="text" class="form-control mt-2" placeholder="John William" wire:model="first_and_middle_name" />
+                                                                        </div>
                                                                     </div>
+                                                                    <small class="small mt-3">If you have a middle name, please include it.</small>
                                                                 </div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                        <label>Last Name</label>
-                                                                        <input type="text" class="form-control" placeholder="John William" wire:model="last_name" />
+                                                                        <label class="labels">Last Name</label>
+                                                                        <input type="text" class="form-control mt-2" placeholder="Smith" wire:model="last_name" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-12 col-sm-12 col-md-12">
-                                                                    <div class="row">
-                                                                        <label>Date of birth</label>
+                                                                    <div class="row  mt-3">
+                                                                        <label class="labels" for="days">Date of birth</label>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" placeholder="Day" wire:model="dob_day">
-                                                                                <option>Day</option>
-                                                                                <option value="1">1</option>
-                                                                                <option value="2">2</option>
-                                                                                <option value="3">3</option>
-                                                                                <option value="4">4</option>
-                                                                                <option value="5">5</option>
-                                                                                <option value="6">6</option>
+                                                                            <select class="form-select mt-2" id="days" name="days" wire:model="dob_day">
+                                                                                <option value="">Day</option>
+                                                                                @foreach($days as $day)
+                                                                                <option value="{{ $day }}">{{ $day }}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" placeholder="Month" wire:model="dob_month">
-                                                                                <option>Month</option>
-                                                                                <option value="January">January</option>
-                                                                                <option value="February">February</option>
-                                                                                <option value="March">March</option>
-                                                                                <option value="April">April</option>
-                                                                                <option value="May">May</option>
-                                                                                <option value="June">June</option>
+                                                                            <select class="form-select mt-2" wire:model="dob_month">
+                                                                                <option value="" disabled>Month</option>
+                                                                                @foreach(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
+                                                                                <option value="{{ $month }}">{{ $month }}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4">
                                                                             <select class="form-select mt-2" placeholder="Year" wire:model="dob_year">
                                                                                 <option>Year</option>
-                                                                                <option value="2024">2024</option>
-                                                                                <option value="2023">2023</option>
-                                                                                <option value="2022">2022</option>
-                                                                                <option value="2021">2021</option>
-                                                                                <option value="2020">2020</option>
-                                                                                <option value="2019">2019</option>
+                                                                                @for ($year = date('Y'); $year >= 1900; $year--)
+                                                                                <option value="{{ $year }}">{{ $year }}</option>
+                                                                                @endfor
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -746,57 +767,58 @@
                                                     <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                                         <div class="row">
                                                             <div class="col-md-6 col-6 col-lg-6 col-sm-6">
-                                                               <h4>Traveler #{{ $loop->iteration + 1 }} Personal Details </h4>
+                                                                <h4>Traveler #{{ $loop->iteration + 1 }} Personal Details </h4>
                                                             </div>
                                                             <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
-                                                               <span wire:click="removeTraveler({{ $index }})" style="cursor: pointer; text-align:right;"><i class="fa fa-trash"></i></span>
+                                                                <span wire:click="removeTraveler({{ $index }})" style="cursor: pointer; text-align:right;"><i class="fa fa-trash"></i></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <p class="mb-2">These should match what's in your passport.</p>
-                                                <hr class="mb-4">
+
+                                                <p class="mb-4" style="font-size:18px;">This should match what's in your Passport</p>
+
                                                 <div class="checkout-detail">
                                                     <div class="row g-4">
                                                         <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
                                                             <div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                        <label>First and middle name</label>
-                                                                        <input type="text" class="form-control" placeholder="John William" wire:model="travelers.{{ $index }}.first_and_middle_name" />
-                                                                        <small>If you have a middle name, please include it.</small>
+                                                                        <label class="labels">First and middle name</label>
+                                                                        <input type="text" class="form-control mt-2" placeholder="John William" wire:model="travelers.{{ $index }}.first_and_middle_name" />
                                                                     </div>
+                                                                    <small class="small">If you have a middle name, please include it.</small>
                                                                 </div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                        <label>Last Name</label>
-                                                                        <input type="text" class="form-control" placeholder="John William"  wire:model="travelers.{{ $index }}.last_name" />
+                                                                        <label class="labels">Last Name</label>
+                                                                        <input type="text" class="form-control mt-2" placeholder="Smith" wire:model="travelers.{{ $index }}.last_name" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-12 col-sm-12 col-md-12">
                                                                     <div class="row">
-                                                                        <label>Date of birth</label>
+                                                                        <label class="labels mb-4">Date of birth</label>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" placeholder="Day" wire:model="travelers.{{ $index }}.dob_day">
-                                                                                <option>Day</option>
-                                                                                @for ($day = 1; $day <= 31; $day++)
-                                                                                    <option value="{{ $day }}">{{ $day }}</option>
-                                                                                @endfor
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" placeholder="Month"  wire:model="travelers.{{ $index }}.dob_month">
-                                                                                <option>Month</option>
-                                                                                @foreach (['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
-                                                                                    <option value="{{ $month }}">{{ $month }}</option>
+                                                                            <select class="form-select mt-2" id="days" name="days" wire:model="dob_day">
+                                                                                <option value="" disabled>Select Day</option>
+                                                                                @foreach($days as $day)
+                                                                                <option value="{{ $day }}">{{ $day }}</option>
                                                                                 @endforeach
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" placeholder="Year"  wire:model="travelers.{{ $index }}.dob_year">
+                                                                            <select class="form-select mt-2" wire:model="dob_month">
+                                                                                <option value="" disabled>Select Month</option>
+                                                                                @foreach(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
+                                                                                <option value="{{ $month }}">{{ $month }}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-select mt-2" placeholder="Year" wire:model="travelers.{{ $index }}.dob_year">
                                                                                 <option>Year</option>
                                                                                 @for ($year = date('Y'); $year >= 1900; $year--)
-                                                                                    <option value="{{ $year }}">{{ $year }}</option>
+                                                                                <option value="{{ $year }}">{{ $year }}</option>
                                                                                 @endfor
                                                                             </select>
                                                                         </div>
@@ -808,30 +830,32 @@
                                                 </div>
                                         </li>
                                         @endforeach
-                                        <button class="btn add-another-traveler-button mt-4"  type="button"  wire:click="addTraveler"><i class="fa fa-plus-circle"></i> Add Another traveler</button>
+                                        <button class="btn add-another-traveler-button mt-4" type="button" wire:click="addTraveler"><i class="fa fa-plus-circle"></i> &nbsp; &nbsp; Add Another traveler</button>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-1"></div>
                         <div class="col-lg-4">
                             <div class="right-side-summery-box">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
                                         <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                             <div class="row">
-                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
-                                                    <h3>Uganda Tourist eVisa</h3>
+                                                <div class="col-md-8 col-8 col-lg-8 col-sm-8">
+                                                    <h3 style="font-size: 1.25rem;font-weight: 700;line-height: 28px;">Uganda Tourist eVisa </h3>
                                                 </div>
-                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
-                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                <div class="col-md-4 col-4 col-lg-4 col-sm-4" style="text-align:right;">
+                                                    <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     <ul class="summery-contain">
                                         <li>
                                             <h5>+ Government fees</h5>
-                                            <h4 class="price">USh 200130.00</h4>
+                                            <h4 class="price">USD 200130.00</h4>
                                         </li>
                                     </ul>
                                     <p>{{ session('last_name') }}{{ session('first_and_middle_name') }}</p>
@@ -862,9 +886,9 @@
                                     <span wire:loading.remove wire:target="AddInfo2">Save and continue</span>
                                 </button>
                             </div>
-                            <p><i class="fa fa-user-plus mt-3"></i> <span class="fw-bold">Your info is safe with us!</span></p>
-                            <small>For more details see <a href="#!">how we keep your data safe</a></small>
-                            <p><a href="#!" wire:click="goToPreviousStep"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
+                            <p><i class="fa fa-user-plus mt-3"></i> <span style="font-weight:bold; font-size:16px;">Your info is safe with us!</span></p>
+                            <small class="small mt-3">For more details see <a href="#!" style="color:blue; text-decoration:underline;">how we keep your data safe</a></small>
+                            <p class="mt-4"><a href="#!" wire:click="goToPreviousStep" style="color:blue; font-size:18px; font-weight:bold;"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
                         </div>
                     </div>
                 </form>
@@ -894,16 +918,16 @@
             <div class="row g-sm-4 g-3">
                 <form wire:submit.prevent="AddInfo4">
                     <div class="row g-sm-4 g-3">
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="left-sidebar-checkout">
                                 <div class="checkout-detail-box">
                                     <ul>
                                         <li>
                                             <div class="checkout-box bg-white">
                                                 <div class="checkout-title">
-                                                    <h4>Your Passport Information</h4>
+                                                    <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Your Personal Details</h4>
                                                 </div>
-                                                <hr class="mb-4">
+
                                                 <div class="checkout-detail">
                                                     <div class="row g-4">
                                                         <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
@@ -914,82 +938,69 @@
                                                                         <div>
                                                                             <div class="row mt-3">
                                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                                    <label>Nationality on passport</label>
-                                                                                    <select class="form-select mt-2" placeholder="" wire:model="passport_nationality">
-                                                                                        <option>Select Country</option>
-                                                                                        <option value="Greece -GR">Greece -GR</option>
-                                                                                        <option value="February">February</option>
-                                                                                        <option value="March">March</option>
-                                                                                        <option value="April">April</option>
-                                                                                        <option value="May">May</option>
-                                                                                        <option value="June">June</option>
+                                                                                    <label class="labels">Nationality on passport</label>
+                                                                                    <select class="form-select mt-2" id="days" name="days" wire:model="passport_nationality">
+                                                                                        @foreach($countries as $country)
+                                                                                        <option value="{{ $country['code'] }}">{{ $country['name'] }} - {{ $country['code'] }} </option>
+                                                                                        @endforeach
                                                                                     </select>
-                                                                                    <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center">
-                                                                                        <input class="form-check-input" type="checkbox">
-                                                                                        <label class="form-check-label ms-2" for="desktop">
-                                                                                            Skip entering passport information for now
-                                                                                        </label>
-                                                                                    </div>
                                                                                 </div>
+
                                                                             </div>
+                                                                            <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
+                                                                                <input class="form-check-input" style="border-radius:6px;" type="checkbox" wire:model="skip_passport">
+                                                                                <label class="form-check-label ms-2" for="desktop">
+                                                                                    Skip entering passport information for now.
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <!-- Passport fields rendered only when skip_passport is false -->
+                                                                            @if(!$skip_passport)
                                                                             <div class="row mt-3">
                                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                                    <label>Passport number</label>
+                                                                                    <label class="labels">Passport number</label>
                                                                                     <input type="text" class="form-control mt-2" placeholder="Smith" wire:model="passport_number" />
-
                                                                                 </div>
                                                                             </div>
+
                                                                             <div class="row mt-3">
                                                                                 <div class="col-lg-12 col-sm-12 col-md-12">
                                                                                     <div class="row">
+                                                                                        <label class="labels">Passport expiration</label>
                                                                                         <div class="col-lg-4 col-md-4">
-                                                                                            <label>Passport expiration Day</label>
-                                                                                            <select class="form-select mt-2" placeholder="Day" wire:model="passport_expiry_date_day">
-                                                                                                <option>Day</option>
-                                                                                                <option value="1">1</option>
-                                                                                                <option value="2">2</option>
-                                                                                                <option value="3">3</option>
-                                                                                                <option value="4">4</option>
-                                                                                                <option value="5">5</option>
-                                                                                                <option value="6">6</option>
+                                                                                            <select class="form-select mt-2" id="days" name="days" placeholder="Day" wire:model="passport_expiry_date_day">
+                                                                                                @foreach($days as $day)
+                                                                                                <option value="{{ $day }}">{{ $day }}</option>
+                                                                                                @endforeach
                                                                                             </select>
                                                                                         </div>
                                                                                         <div class="col-lg-4 col-md-4">
-                                                                                            <label>Passport expiration Month</label>
-                                                                                            <select class="form-select mt-2" placeholder="Month" wire:model="passport_expiry_date_month">
-                                                                                                <option>Month</option>
-                                                                                                <option value="January">January</option>
-                                                                                                <option value="February">February</option>
-                                                                                                <option value="March">March</option>
-                                                                                                <option value="April">April</option>
-                                                                                                <option value="May">May</option>
-                                                                                                <option value="June">June</option>
+                                                                                            <select class="form-select mt-2" wire:model="passport_expiry_date_month" placeholder="Month">
+                                                                                                @foreach(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
+                                                                                                <option value="{{ $month }}">{{ $month }}</option>
+                                                                                                @endforeach
                                                                                             </select>
                                                                                         </div>
                                                                                         <div class="col-lg-4 col-md-4">
-                                                                                            <label>Passport expiration Year</label>
                                                                                             <select class="form-select mt-2" placeholder="Year" wire:model="passport_expiry_date_year">
                                                                                                 <option>Year</option>
-                                                                                                <option value="2024">2024</option>
-                                                                                                <option value="2023">2023</option>
-                                                                                                <option value="2022">2022</option>
-                                                                                                <option value="2021">2021</option>
-                                                                                                <option value="2020">2020</option>
-                                                                                                <option value="2019">2019</option>
+                                                                                                @for ($year = date('Y'); $year >= 1900; $year--)
+                                                                                                <option value="{{ $year }}">{{ $year }}</option>
+                                                                                                @endfor
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            @endif
+
                                                                             <div class="row mt-3">
                                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
-                                                                                    <label>Country of birth</label>
+                                                                                    <label class="labels">Country of birth</label>
                                                                                     <select class="form-select mt-2" placeholder="Country of Birth" wire:model="country_of_birth">
-                                                                                        <option>Country Of Birth</option>
-                                                                                        <option value="Uganda">Uganda - UG</option>
-                                                                                        <option value="Kenya">Kenya - KE</option>
-                                                                                        <option value="Rwanda">Rwanda - RW</option>
-                                                                                        <option value="South Sudan">South Sudan - SS</option>
+                                                                                        @foreach($countries as $country)
+                                                                                        <option value="{{ $country['code'] }}">{{ $country['name'] }} - {{ $country['code'] }} </option>
+                                                                                        @endforeach
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -1005,17 +1016,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-1"></div>
                         <div class="col-lg-4">
-                            <div class="right-side-summery-box">
+                            <div class="right-side-summery-box mt-5">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
                                         <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                             <div class="row">
-                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
-                                                    <h3>Uganda Tourist eVisa</h3>
+                                                <div class="col-md-8 col-8 col-lg-8 col-sm-8">
+                                                    <h3 style="font-size: 1.25rem;font-weight: 700;line-height: 28px;">Uganda Tourist eVisa</h3>
                                                 </div>
-                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
-                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                <div class="col-md-4 col-4 col-lg-4 col-sm-4" style="text-align:right;">
+                                                    <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1023,7 +1035,7 @@
                                     <ul class="summery-contain">
                                         <li>
                                             <h5>+ Government fees</h5>
-                                            <h4 class="price">USh 200130.00</h4>
+                                            <h4 class="price">USD 200130.00</h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -1052,9 +1064,9 @@
                                     <span wire:loading.remove wire:target="AddInfo4">Save and continue</span>
                                 </button>
                             </div>
-                            <p><i class="fa fa-user-plus mt-3"></i> <span class="fw-bold">Your info is safe with us!</span></p>
-                            <small>For more details see <a href="#!">how we keep your data safe</a></small>
-                            <p><a href="#!" wire:click="goToPreviousStep"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
+                            <p><i class="fa fa-user-plus mt-3"></i> <span style="font-weight:bold; font-size:16px;">Your info is safe with us!</span></p>
+                            <small class="small mt-3">For more details see <a href="#!" style="color:blue; text-decoration:underline;">how we keep your data safe</a></small>
+                            <p class="mt-4"><a href="#!" wire:click="goToPreviousStep" style="color:blue; font-size:18px; font-weight:bold;"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
                         </div>
                     </div>
                 </form>
@@ -1085,32 +1097,30 @@
             <div class="row g-sm-4 g-3">
                 <form wire:submit.prevent="AddInfo5">
                     <div class="row g-sm-4 g-3">
-                        <div class="col-lg-8">
-                            
+                        <div class="col-lg-7">
+
                             <div class="left-sidebar-checkout">
                                 <div class="checkout-detail-box">
                                     <ul>
                                         <li>
                                             <div class="checkout-box bg-white">
                                                 <div class="checkout-title">
-                                                    <h2>Processing Time & Fee</h2>
+                                                    <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Choose your processing time</h4>
                                                 </div>
-                                                <hr class="mb-4" />
+
+
                                                 <div class="checkout-detail">
-                                                    
+
                                                     <div class="row g-4">
                                                         <div class="col-xxl-6 col-lg-12 col-md-6">
                                                             <div class="delivery-address-box">
-                                                                <h3 style="font-weight: 600; font-size: 20px">
-                                                                    Choose your processing time
-                                                                </h3>
                                                                 <div>
                                                                     <div class="col-12 col-xxl-12 col-md-12 col-lg-12 col-sm-12">
                                                                         <div class="row mt-3">
                                                                             <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-                                                                                <div class="card custom-card" >
+                                                                                <div class="card custom-card" style="height:102px;">
                                                                                     <div class="card-body">
-                                                                                        <p>USh203,075.00 - Standard</p>
+                                                                                        <p class="mt-4">USD203,075.00 - Standard</p>
                                                                                         <p style="font-weight: bold; color: green">
                                                                                             9 day processing
                                                                                         </p>
@@ -1120,9 +1130,9 @@
                                                                         </div>
                                                                         <div class="row mt-3">
                                                                             <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-                                                                                <div class="card custom-card">
+                                                                                <div class="card custom-card" style="height:102px;">
                                                                                     <div class="card-body">
-                                                                                        <p>USh300,726.00 - Rush</p>
+                                                                                        <p class="mt-4">USD300,726.00 - Rush</p>
                                                                                         <p style="font-weight: bold; color: green">
                                                                                             7 day processing
                                                                                         </p>
@@ -1132,9 +1142,9 @@
                                                                         </div>
                                                                         <div class="row mt-3">
                                                                             <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-                                                                                <div class="card custom-card">
+                                                                                <div class="card custom-card" style="height:102px;">
                                                                                     <div class="card-body">
-                                                                                        <p>USh406,189.00 - Super Rush</p>
+                                                                                        <p class="mt-4">USD406,189.00 - Super Rush</p>
                                                                                         <p style="font-weight: bold; color: green">
                                                                                             5 day processing
                                                                                         </p>
@@ -1154,17 +1164,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-1"></div>
                         <div class="col-lg-4">
-                            <div class="right-side-summery-box">
+                            <div class="right-side-summery-box mt-5">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
                                         <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                                             <div class="row">
-                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6">
+                                                <div class="col-md-8 col-8 col-lg-8 col-sm-8">
                                                     <h3>Uganda Tourist eVisa</h3>
                                                 </div>
-                                                <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
-                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                <div class="col-md-4 col-4 col-lg-4 col-sm-4" style="text-align:right;">
+                                                    <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1172,11 +1183,11 @@
                                     <ul class="summery-contain">
                                         <li>
                                             <h5>+ Government fees</h5>
-                                            <h4 class="price">USh 200130.00</h4>
+                                            <h4 class="price">USD 200130.00</h4>
                                         </li>
                                         <li>
                                             <h5>+ Standard, 9 days</h5>
-                                            <h4 class="price">USh 203075.00</h4>
+                                            <h4 class="price">USD 203075.00</h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -1205,9 +1216,9 @@
                                     <span wire:loading.remove wire:target="AddInfo5">Save and continue</span>
                                 </button>
                             </div>
-                                <p><i class="fa fa-user-plus mt-3"></i> <span class="fw-bold">Your info is safe with us!</span></p>
-                                <small>For more details see <a href="#!">how we keep your data safe</a></small>
-                                <p><a href="#!" wire:click="goToPreviousStep"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
+                            <p><i class="fa fa-user-plus mt-3"></i> <span style="font-weight:bold; font-size:16px;">Your info is safe with us!</span></p>
+                            <small class="small mt-3">For more details see <a href="#!" style="color:blue; text-decoration:underline;">how we keep your data safe</a></small>
+                            <p class="mt-4"><a href="#!" wire:click="goToPreviousStep" style="color:blue; font-size:18px; font-weight:bold;"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
                         </div>
                     </div>
                 </form>
@@ -1222,7 +1233,7 @@
             <div class="row g-sm-4 g-3">
                 <form wire:submit.prevent="AddInfo6">
                     <div class="row g-sm-4 g-3">
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="left-sidebar-checkout">
                                 <div class="checkout-detail-box">
                                     <ul>
@@ -1232,16 +1243,15 @@
                                                     <h2>Review your order</h2>
                                                 </div>
                                                 <div class="alert-banner">
-                                                        <div class="alert-content">
-                                                            <div class="alert-icon">
-                                                                <img src="{{ asset('visa.png')}}" style="width:50px; height:60px;">
-                                                            </div>
-                                                            <div class="separator"></div> <!-- White space separator -->
-                                                            <div class="alert-text">
-                                                                <span class="fw-bold">Finish your application now, and get it by Thursday, Dec 12, 2024</span>
-                                                            </div>
+                                                    <div class="alert-content">
+                                                        <div class="alert-icon" style="border-right: 0px;">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <div class="alert-text">
+                                                            <span class="fw-bold">Finish your application now, and get it by Thursday, Dec 12, 2024</span>
                                                         </div>
                                                     </div>
+                                                </div>
                                                 <div class="checkout-detail">
                                                     <div class="row g-4">
                                                         <div class="col-xxl-6 col-lg-12 col-md-6">
@@ -1250,26 +1260,29 @@
                                                                     <div class="col-12 col-xxl-12 col-md-12 col-lg-12 col-sm-12">
                                                                         <div class="row mt-3">
                                                                             <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-                                                                                <div class="card custom-card">
+                                                                                <div class="card custom-card" style="border:1px solid #E5E7EB; background:#fff;">
                                                                                     <div class="card-body">
                                                                                         <div class="row">
-                                                                                            <div class="col-12 col-md-6 col-lg-4 col-sm-4">
-                                                                                                  <span style="background-color:#add8e6;border-radius:50%; height:100px;width:100px; display:inline-block;"><img src="{{ asset('visa.png')}}"></span>
+                                                                                            <div class="col-md-6 col-lg-4 col-sm-4">
+                                                                                                <span style="background-color:#add8e6; border-radius:50%; height:100px;  width:100px; display:flex; align-items:center; justify-content:center; margin-left:15px; margin-top:15px;">
+                                                                                                    <img src="{{ asset('visa.png')}}"></span>
                                                                                             </div>
                                                                                             <div class="col-12 col-md-6 col-lg-6 col-sm-6">
-                                                                                                  <p><h2>Uganda East Africa Visa</h2></p>
-                                                                                                  <p class="mt-3">Valid for: 180 days after arrival</p>
-                                                                                                  <p class="mt-3">Max stay: 90 days in total</p>
-                                                                                                  <p class="mt-3">Number of entries: Multiple entry</p>
+                                                                                                <p>
+                                                                                                <h4 style="font-weight:bold;">Uganda East Africa Visa</h4>
+                                                                                                </p>
+                                                                                                <p class="mt-3">Valid for: <span style="font-weight:bold;">180 days after arrival</span></p>
+                                                                                                <p class="mt-3">Max stay: <span style="font-weight:bold;">90 days in total</span></p>
+                                                                                                <p class="mt-3">Number of entries:<span style="font-weight:bold;">Multiple entry</span> </p>
                                                                                             </div>
                                                                                             <div class="col-12 col-md-6 col-lg-2 col-sm-2 text-end mt-3">
-                                                                                                  <button class="btn-primary btn-sm" style="padding:4px; border-radius:10px;">Rush</button>
+                                                                                                <button class="btn-primary btn-sm" style="padding:4px; border-radius:10px;">Standard</button>
                                                                                             </div>
                                                                                         </div>
                                                                                         <hr class="mb-4 mt-4">
                                                                                         <div class="row">
                                                                                             <p class="capitalize mb-3">travelers</p>
-                                                                                            <p ><i class="fa fa-user"></i> <span class="capitalize">Atim Esther</span></p>
+                                                                                            <p><i class="fa fa-user"></i> <span class="capitalize">Atim Esther</span></p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1277,19 +1290,21 @@
                                                                         </div>
                                                                         <div class="row mt-3">
                                                                             <div class="col-12 col-md-12 col-lg-12 col-sm-12">
-                                                                                <div class="card custom-card">
+                                                                                <div class="card custom-card" style="border:1px solid #E5E7EB; background:#fff;">
                                                                                     <div class="card-body">
-                                                                                    <div class="row">
-                                                                                            <div class="col-12 col-md-6 col-lg-6 col-sm-6 fw-bold">
-                                                                                               <i class="fa fa-shield-virus"></i> &nbsp; Add denial protection <br>UGX USh58552.00
+                                                                                        <div class="row">
+                                                                                            <div class="col-12 col-md-6 col-lg-6 col-sm-6 fw-bold mb-2">
+                                                                                                <i class="fa fa-shield-virus text-warning"></i> &nbsp; Add denial protection <br>USD 58552.00
                                                                                             </div>
-                                                                                            <div class="col-12 col-md-6 col-lg-6 col-sm-6 text-right">
+                                                                                            <div class="col-12 col-md-6 col-lg-6 col-sm-6 text-right mb-4">
                                                                                                 <div class="form-check custom-form-check custom-form-check-2 d-flex justify-content-end align-items-center ms-auto">
-                                                                                                    <input class="form-check-input" type="checkbox"  id="">
-                                                                                                
+                                                                                                    <input class="form-check-input" type="checkbox" id="">
+
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <p><small>Get a 100% refund on your order if your application is rejected by the government for any reason.</small></p>
+                                                                                            <p><small class="small mt-5">Get a 100% refund on your order if your application is rejected by the government for any reason.</small></p>
+
+                                                                                            <p class="text-center ,t-2"><a href="#!" style="color:blue;">Learn More</a></p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1308,6 +1323,7 @@
                             </div>
 
                         </div>
+                        <div class="col-lg-1"></div>
                         <div class="col-lg-4">
                             <div class="right-side-summery-box mb-5">
                                 <div class="summery-box-2">
@@ -1318,7 +1334,7 @@
                                                     <h3>Uganda Tourist eVisa</h3>
                                                 </div>
                                                 <div class="col-md-6 col-6 col-lg-6 col-sm-6" style="text-align:right;">
-                                                     <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
+                                                    <h6>{{ $travelerCount }} Traveler{{ $travelerCount > 1 ? 's' : '' }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1326,44 +1342,42 @@
                                     <ul class="summery-contain">
                                         <li>
                                             <h5>+ Government fees</h5>
-                                            <h4 class="price">USh 200130.00</h4>
+                                            <h4 class="price">USD 200130.00</h4>
                                         </li>
                                         <li>
                                             <h5>+ Standard, 9 days</h5>
-                                            <h4 class="price">USh 203075.00</h4>
+                                            <h4 class="price">USD 203075.00</h4>
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <p></p>
-                            <div class="row mt-4 mb-4">
-                                <div class="right-side-summery-box">
-                                    <div class="summery-box-2 border-0" style="background-color:#fff;">
-                                        <ul class="summery-contain">
-                                            <li>
-                                                <h5><span class="fw-bold">Total</span><br>
-                                                    <small>For all travellers</small>
-                                                </h5>
-                                                <h4 class="price"><span class="fw-bold">UGX USh703047.00</span>
-                                                </h4>
-                                            </li>
-                                        </ul>
+                                <div class="row mt-5 mb-4">
+                                    <div class="right-side-summery-box">
+                                        <div class="summery-box-2 border-0" style="background-color:#fff;">
+                                            <ul class="summery-contain">
+                                                <li>
+                                                    <h5><span class="fw-bold">Total</span><br>
+                                                        <small>For all travellers</small>
+                                                    </h5>
+                                                    <h4 class="price"><span class="fw-bold">USD 703047.00</span>
+                                                    </h4>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-center">
+                                    <button href="#" class="gradient-button btn-sm w-100" type="button" onclick="Livewire.dispatch('openModal', { component: 'add-payment' })">
+                                        <span wire:loading wire:target="AddInfo6">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </span>
+                                        <span wire:loading.remove wire:target="AddInfo6">Continue to Payment</span>
+                                    </button>
+                                </div>
+                                <p><i class="fa fa-user-plus mt-3"></i> <span style="font-weight:bold; font-size:16px;">Your info is safe with us!</span></p>
+                                <small class="small mt-3">For more details see <a href="#!" style="color:blue; text-decoration:underline;">how we keep your data safe</a></small>
+                                <p class="mt-4"><a href="#!" wire:click="goToPreviousStep" style="color:blue; font-size:18px; font-weight:bold;"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
                             </div>
-                            <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-center">
-                                <button href="#" class="gradient-button btn-sm w-100" type="button" onclick="Livewire.dispatch('openModal', { component: 'add-payment' })">
-                                    <span wire:loading wire:target="AddInfo6">
-                                        <i class="fa fa-spinner fa-spin"></i>
-                                    </span>
-                                    <span wire:loading.remove wire:target="AddInfo6">Continue to Payment</span>
-                                </button>
-                            </div>
-                            <p><i class="fa fa-user-plus mt-3"></i> <span class="fw-bold">Your info is safe with us!</span></p>
-                            <small>For more details see <a href="#!">how we keep your data safe</a></small>
-                            <p><a href="#!" wire:click="goToPreviousStep"> <i class="fa fa-arrow-left"> </i> Previous</a></p>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
@@ -1374,6 +1388,24 @@
     <script>
         function closeBanner() {
             document.querySelector('.banner').style.display = 'none';
+        }
+    </script>
+    <script>
+        // Get the current date
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth(); // Month index (0 = January, 11 = December)
+
+        // Get the number of days in the current month
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        // Populate the select dropdown
+        const daysSelect = document.getElementById('days');
+        for (let day = 1; day <= daysInMonth; day++) {
+            const option = document.createElement('option');
+            option.value = day;
+            option.textContent = day;
+            daysSelect.appendChild(option);
         }
     </script>
 </div>
