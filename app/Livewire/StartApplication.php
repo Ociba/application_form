@@ -42,6 +42,13 @@ class StartApplication extends Component
 
     public function AddInfo()
     {
+        $this->validate([
+            'nationality' => 'required|string',
+            'visaType' => 'required|string'
+        ], [
+            'nationality.required' => 'The nationality field is required.',
+            'visaType.required' => 'Please select the visa type.'
+        ]);
         // Save to session
         Session::put('nationality', $this->nationality);
         Session::put('visaType', $this->visaType);
@@ -65,6 +72,18 @@ class StartApplication extends Component
     }
 
    public function AddInfo2(){
+    // Validation Rules for Step 2
+    $this->validate([
+        'arrival_date' => 'required|date',
+        'departure_date' => 'required|date|after_or_equal:arrival_date',
+        'email' => 'required|email',
+    ], [
+        'arrival_date.required' => 'The arrival date is required.',
+        'departure_date.required' => 'The departure date is required.',
+        'departure_date.after_or_equal' => 'Departure date must be after arrival.',
+        'email.required' => 'The email field is required.',
+        'email.email' => 'Enter a valid email address.'
+    ]);
       // Save to session
       Session::put('arrival_date', $this->arrival_date);
       Session::put('departure_date', $this->departure_date);
@@ -79,6 +98,21 @@ class StartApplication extends Component
    }
 
    public function AddInfo3(){
+     // Validation Rules for Step 3
+     $this->validate([
+        'first_and_middle_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'dob_day' => 'required|numeric|min:1|max:31',
+        'dob_month' => 'required|string',
+        'dob_year' => 'required|numeric|min:1900|max:' . date('Y'),
+    ], [
+        'first_and_middle_name.required' => 'Please enter your first and middle name.',
+        'last_name.required' => 'Last name is required.',
+        'dob_day.required' => 'Day of birth is required.',
+        'dob_month.required' => 'Month of birth is required.',
+        'dob_year.required' => 'Year of birth is required.',
+        'dob_year.min' => 'Year of birth must be valid.'
+    ]);
       // Save to session
       Session::put('first_and_middle_name', $this->first_and_middle_name);
       Session::put('last_name', $this->last_name);
@@ -90,6 +124,14 @@ class StartApplication extends Component
    }
 
    public function AddInfo4(){
+     // Validation Rules for Step 4
+     $this->validate([
+        'passport_nationality' => 'required|string|max:255',
+        'country_of_birth' => 'required|string|max:255',
+    ], [
+        'passport_nationality.required' => 'Passport Nationality is required.',
+        'country_of_birth.required' => 'Country of Birth is required.',
+    ]);
     // Save to session
     Session::put('passport_nationality', $this->passport_nationality);
     Session::put('passport_number', $this->passport_number);

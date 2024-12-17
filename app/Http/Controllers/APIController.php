@@ -17,11 +17,13 @@ class APIController extends Controller
 {
     protected $pesapalService;
     protected $ipnService;
+    protected $token;
 
     public function __construct(PesapalService $pesapalService,IPNService $ipnService)
     {
         $this->pesapalService = $pesapalService;
         $this->ipnService = $ipnService;
+        $this->pesapalService->getAccessToken();
     }
 
     /**
@@ -272,6 +274,9 @@ class APIController extends Controller
                 // If the response has 'data', extract the 'order_tracking_id'
                 if (isset($responseData['order_tracking_id'])) {
                     $orderTrackingId = $responseData['order_tracking_id'];
+                      // Redirect the user to a confirmation page with orderTrackingId
+                    return redirect()->route('order.confirmation', ['order_tracking_id' => $orderTrackingId])
+                    ->with('success', 'Order submitted successfully!');
                 } else {
                     // Handle case where 'order_tracking_id' is not found
                     return response()->json([
@@ -305,6 +310,30 @@ class APIController extends Controller
             ], 500);
         }
     }
+
+    public function getTransactionStatus($orderTrackingId)
+{
+    // Define the API URL
+    $apiUrl = "https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus";
+
+    // Send the GET request, passing the orderTrackingId as a query parameter
+    $response = Http::withToken($this->token) // Include the token in the Bearer Authorization header
+        ->accept('application/json') // Add the required Accept header
+        ->get($apiUrl, [
+            'orderTrackingId' => $orderTrackingId, // Pass orderTrackingId as a query parameter
+        ]);
+
+    // Check if the response is successful
+    if ($response->successful()) {
+        return $response->json();
+    }
+
+    // Log any error if the request failed
+    $error = $response->json();
+    Log::error('Pesapal API Error:', ['response' => $error]);
+
+    return null; // Return null if error occurs
+}
 
 
 }

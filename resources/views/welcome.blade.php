@@ -262,36 +262,36 @@
     
  <script>
     // Submit the order and handle the response
-fetch('https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId={orderTrackingId}', {
-    method: 'GET',
-    // Include necessary request data (if any)
-    body: JSON.stringify({
-        // Your order data here
-    }),
-    headers: {
-        'Content-Type': 'application/json'
-    }
-})
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Extract order_tracking_id from the response data
-            const orderTrackingId = data.data.order_tracking_id;
-
-            // Construct the URL to your Laravel route using the order_tracking_id
-            const orderStatusUrl = `/order-status/${orderTrackingId}`;
-
-            // Redirect to the order status page
-            window.location.href = orderStatusUrl;
-        } else {
-            // Handle order submission failure
-            console.error('Order submission failed:', data.message);
+    fetch('https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId={orderTrackingId}', {
+        method: 'GET',
+        // Include necessary request data (if any)
+        body: JSON.stringify({
+            // Your order data here
+        }),
+        headers: {
+            'Content-Type': 'application/json'
         }
     })
-    .catch(error => {
-        // Handle error during the order submission
-        console.error('Error submitting order:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Extract order_tracking_id from the response data
+                const orderTrackingId = data.data.order_tracking_id;
+
+                // Construct the URL to your Laravel route using the order_tracking_id
+                const orderStatusUrl = `/order-status/${orderTrackingId}`;
+
+                // Redirect to the order status page
+                window.location.href = orderStatusUrl;
+            } else {
+                // Handle order submission failure
+                console.error('Order submission failed:', data.message);
+            }
+        })
+        .catch(error => {
+            // Handle error during the order submission
+            console.error('Error submitting order:', error);
+        });
 
 
  </script>

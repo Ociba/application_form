@@ -44,22 +44,19 @@
     
 
     <div class="container">
+    @if (isset($transactionStatus))
         <h2>Transaction Status</h2>
-        
-        @if (isset($transactionStatus) && $transactionStatus)
-    <ul class="list-group">
-        <li class="list-group-item"><strong>Payment Method:</strong> {{ $transactionStatus['payment_method'] }}</li>
-        <li class="list-group-item"><strong>Amount:</strong> {{ $transactionStatus['amount'] }}</li>
-        <li class="list-group-item"><strong>Created Date:</strong> {{ $transactionStatus['created_date'] }}</li>
-        <li class="list-group-item"><strong>Confirmation Code:</strong> {{ $transactionStatus['confirmation_code'] }}</li>
-        <li class="list-group-item"><strong>Payment Status:</strong> {{ $transactionStatus['payment_status_description'] }}</li>
-        <!-- Add other fields here -->
-    </ul>
-@elseif (isset($error))
-    <p class="alert alert-danger">{{ $error }}</p>
-@else
-    <p class="alert alert-danger">Transaction status is not available.</p>
-@endif
+        <p><strong>Status:</strong> {{ $transactionStatus['payment_status_description'] ?? 'Unknown' }}</p>
+        <p><strong>Amount:</strong> {{ $transactionStatus['amount'] ?? 'N/A' }}</p>
+        <p><strong>Payment Method:</strong> {{ $transactionStatus['payment_method'] ?? 'N/A' }}</p>
+        <p><strong>Confirmation Code:</strong> {{ $transactionStatus['confirmation_code'] ?? 'N/A' }}</p>
+    @elseif (isset($error))
+        <h2>Error</h2>
+        <p>{{ $error }}</p>
+    @else
+        <h2>Unknown Status</h2>
+        <p>An unknown error occurred. Please contact support.</p>
+    @endif
 
     </div>
 
