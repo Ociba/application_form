@@ -447,6 +447,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
+                                                                    @error('nationality') <small class="text-danger">{{ $message }}</small> @enderror
                                                                     <small class="small mt-3">Ensure you select the nationality of the passport you'll be traveling with.</small>
                                                                 </div>
                                                                 <div class="row mt-3">
@@ -458,12 +459,13 @@
                                                                             <option value="Uganda East Africa visa - 180 days, Multiple entry">Uganda East Africa visa - 180 days, Multiple entry</option>
                                                                         </select>
                                                                     </div>
+                                                                    @error('visaType') <small class="text-danger">{{ $message }}</small> @enderror
                                                                 </div>
                                                                 <div class="row mt-4">
                                                                     <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12">
                                                                         <div class="row">
                                                                             <div class="col-xxl-7 col-lg-7 col-md-7 col-sm-12 mb-2 text-center text-lg-start mb-2">
-                                                                                <i class="fa fa-star"></i> <strong>Tripple Advisor</strong>
+                                                                                <i class="fa fa-star"></i> <strong>Trip Advisor</strong>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
                                                                                 <i class="fa fa-star bg-dark text-white p-1"></i>
@@ -579,28 +581,32 @@
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                     <label class="labels">When do you arrive in Uganda?</label>
-                                                                    <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="departure_date" />
+                                                                    <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="arrival_date" required/>
                                                                 </div>
+                                                                @error('arrival_date') <small class="text-danger">{{ $message }}</small> @enderror
                                                             </div>
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                     <label class="labels">When do you leave in Uganda?</label>
-                                                                    <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="arrival_date" />
+                                                                    <input type="date" class="form-control mt-2" placeholder="DD/MM/YYYY" wire:model="departure_date" required/>
                                                                 </div>
+                                                                @error('departure_date') <small class="text-danger">{{ $message }}</small> @enderror
                                                             </div>
                                                             <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
-                                                                <input class="form-check-input" style="border-radius:6px;" type="checkbox" wire:model="receive_updates" id="receive_updates">
+                                                                <input class="form-check-input" style="border-radius:6px;" type="checkbox" wire:model="receive_updates" id="receive_updates" required>
                                                                 <label class="form-check-label ms-2" for="receive_updates">
 
                                                                     I acknowledge that I need to provide a Yellow Fever Vaccination Card as part of the process, which must be issued at least 10 days after the vaccination date</label>
+                                                                    @error('receive_updates') <small class="text-danger">{{ $message }}</small> @enderror
                                                             </div>
 
                                                             <div class="row mt-3">
                                                                 <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                     <label class="labels">Email address</label>
-                                                                    <input type="email" class="form-control mt-2" placeholder="johnsmith@gmail.com" wire:model="email" />
+                                                                    <input type="email" class="form-control mt-2" placeholder="johnsmith@gmail.com" wire:model="email" required/>
                                                                 </div>
                                                                 <small class="small mt-2">We use this to update you on your application..</small>
+                                                                @error('email') <small class="text-danger">{{ $message }}</small> @enderror
                                                             </div>
 
                                                             <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
@@ -715,43 +721,48 @@
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                         <div class="form-group">
                                                                             <label class="labels">First and middle name</label>
-                                                                            <input type="text" class="form-control mt-2" placeholder="John William" wire:model="first_and_middle_name" />
+                                                                            <input type="text" class="form-control mt-2" placeholder="John William" wire:model="first_and_middle_name" required/>
                                                                         </div>
                                                                     </div>
                                                                     <small class="small mt-3">If you have a middle name, please include it.</small>
+                                                                    @error('first_and_middle_name') <small class="text-danger">{{ $message }}</small> @enderror
                                                                 </div>
                                                                 <div class="row mt-3">
                                                                     <div class="col-12  col-md-12 col-lg-12 col-sm-12">
                                                                         <label class="labels">Last Name</label>
-                                                                        <input type="text" class="form-control mt-2" placeholder="Smith" wire:model="last_name" />
+                                                                        <input type="text" class="form-control mt-2" placeholder="Smith" wire:model="last_name" required/>
                                                                     </div>
+                                                                    @error('last_name') <small class="text-danger">{{ $message }}</small> @enderror
                                                                 </div>
                                                                 <div class="col-lg-12 col-sm-12 col-md-12">
                                                                     <div class="row  mt-3">
                                                                         <label class="labels" for="days">Date of birth</label>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" id="days" name="days" wire:model="dob_day">
+                                                                            <select class="form-select mt-2" id="days" name="days" wire:model="dob_day" required>
                                                                                 <option value="">Day</option>
                                                                                 @foreach($days as $day)
                                                                                 <option value="{{ $day }}">{{ $day }}</option>
                                                                                 @endforeach
                                                                             </select>
+                                                                            @error('dob_day') <small class="text-danger">{{ $message }}</small> @enderror
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" wire:model="dob_month">
+                                                                            <select class="form-select mt-2" wire:model="dob_month" required>
                                                                                 <option value="" disabled>Month</option>
                                                                                 @foreach(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
                                                                                 <option value="{{ $month }}">{{ $month }}</option>
                                                                                 @endforeach
                                                                             </select>
+                                                                            @error('dob_month') <small class="text-danger">{{ $message }}</small> @enderror
                                                                         </div>
                                                                         <div class="col-lg-4 col-md-4">
-                                                                            <select class="form-select mt-2" placeholder="Year" wire:model="dob_year">
+                                                                            <select class="form-select mt-2" placeholder="Year" wire:model="dob_year" required>
                                                                                 <option>Year</option>
                                                                                 @for ($year = date('Y'); $year >= 1900; $year--)
                                                                                 <option value="{{ $year }}">{{ $year }}</option>
                                                                                 @endfor
                                                                             </select>
+                                                                            @error('dob_year') <small class="text-danger">{{ $message }}</small> @enderror
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -945,7 +956,7 @@
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
-
+                                                                                @error('passport_nationality') <small class="text-danger">{{ $message }}</small> @enderror
                                                                             </div>
                                                                             <div class="form-check custom-form-check custom-form-check-2 d-flex align-items-center mt-2">
                                                                                 <input class="form-check-input" style="border-radius:6px;" type="checkbox" wire:model="skip_passport">
@@ -1002,6 +1013,7 @@
                                                                                         <option value="{{ $country['code'] }}">{{ $country['name'] }} - {{ $country['code'] }} </option>
                                                                                         @endforeach
                                                                                     </select>
+                                                                                    @error('country_of_birth') <small class="text-danger">{{ $message }}</small> @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1097,7 +1109,7 @@
             <div class="row g-sm-4 g-3">
                 <form wire:submit.prevent="AddInfo5">
                     <div class="row g-sm-4 g-3">
-                        <div class="col-lg-7">
+                        <div class="col-lg-7 col-xxl-7 col-sm-12 col-md-7">
 
                             <div class="left-sidebar-checkout">
                                 <div class="checkout-detail-box">
@@ -1112,7 +1124,7 @@
                                                 <div class="checkout-detail">
 
                                                     <div class="row g-4">
-                                                        <div class="col-xxl-6 col-lg-12 col-md-6">
+                                                        <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12">
                                                             <div class="delivery-address-box">
                                                                 <div>
                                                                     <div class="col-12 col-xxl-12 col-md-12 col-lg-12 col-sm-12">
@@ -1164,8 +1176,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-1 col-xxl-1 col-sm-12 col-md-1"></div>
+                        <div class="col-lg-4 col-xxl-4 col-sm-12 col-md-4">
                             <div class="right-side-summery-box mt-5">
                                 <div class="summery-box-2">
                                     <div class="summery-header">
@@ -1233,7 +1245,7 @@
             <div class="row g-sm-4 g-3">
                 <form wire:submit.prevent="AddInfo6">
                     <div class="row g-sm-4 g-3">
-                        <div class="col-lg-7">
+                        <div class="col-xxl-7 col-lg-7 col-md-7 col-sm-12">
                             <div class="left-sidebar-checkout">
                                 <div class="checkout-detail-box">
                                     <ul>
@@ -1254,7 +1266,7 @@
                                                 </div>
                                                 <div class="checkout-detail">
                                                     <div class="row g-4">
-                                                        <div class="col-xxl-6 col-lg-12 col-md-6">
+                                                        <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12">
                                                             <div class="delivery-address-box">
                                                                 <div>
                                                                     <div class="col-12 col-xxl-12 col-md-12 col-lg-12 col-sm-12">
@@ -1323,8 +1335,8 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-1 col-xxl-1 col-md-1 col-sm-12"></div>
+                        <div class="col-lg-4 col-xxl-4 col-md-4 col-sm-12">
                             <div class="right-side-summery-box mb-5">
                                 <div class="summery-box-2">
                                     <div class="summery-header">

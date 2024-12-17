@@ -18,5 +18,6 @@ Route::get('/pesapal/ipn', [APIController::class, 'registerIPN']);
 Route::get('/get-registered-ipns', [APIController::class, 'getRegisteredIPNs']);
 Route::get('/', [APIController::class, 'showForm']);
 Route::post('/submit-order', [APIController::class, 'submitOrderRequest'])->name('submit.order');
-Route::get('/order-status/{orderTrackingId}', [OrderController::class, 'showTransactionStatus']);
+// Route::get('/order-status/{orderTrackingId}', [OrderController::class, 'showTransactionStatus']);
+Route::get('/order-confirmation/{order_tracking_id}', [OrderController::class, 'showConfirmation'])->name('order.confirmation');
 
