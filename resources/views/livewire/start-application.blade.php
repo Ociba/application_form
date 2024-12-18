@@ -392,6 +392,136 @@
         .small {
             font-size: 0.80rem;
         }
+        .progtrckr2 {
+            width: 100%;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.progtrckr2 li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+
+/* Horizontal Line Between Steps */
+.progtrckr2 li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    right: 5%;
+    height: 2px;
+    background-color: #cfd8dc; /* Default line color */
+    z-index: -1;
+}
+
+.progtrckr2 li:first-child::before {
+    left: 40%;
+    right: 5%;
+}
+
+/* Bold Green Line for Done and Active Steps */
+.progtrckr2 li.progtrckr-done2::before,
+.progtrckr2 li.progtrckr-active::before {
+    background-color: #0f4c5c; /* Green color */
+    height: 4px; /* Bold line */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Remove the line after the last step */
+.progtrckr2 li:last-child::before {
+    content: none; /* Remove the line */
+}
+
+/* Circle Styles */
+.progtrckr2 .circle {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #0f4c5c; /* Circle border color */
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f4c5c; /* Text inside circle */
+    font-weight: bold;
+    z-index: 1;
+}
+
+.progtrckr2 li.progtrckr-done2 .circle {
+    background-color: #0f4c5c; /* Green color for completed steps */
+    color: #fff;
+}
+
+.progtrckr2 li.progtrckr-active .circle {
+    background-color: #fff; /* White background for active step */
+    border: 2px solid #0f4c5c; /* Green border */
+}
+
+/* Step Labels */
+.progtrckr2 .label {
+    margin-left: 10px;
+    color: #0f4c5c;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Responsive for Smaller Devices */
+@media (max-width: 768px) {
+    .progtrckr2 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px; /* Space between steps vertically */
+    }
+
+    .progtrckr2 li {
+        width: 100%; /* Steps take full width */
+        position: relative;
+        text-align: left; /* Align text to the left */
+    }
+
+    .progtrckr2 li::before {
+        left: 0; /* Align the line */
+        top: 100%; /* Line below the step */
+        height: 2px; 
+        right: 0;
+    }
+
+    /* Remove line after last step on small devices */
+    .progtrckr2 li:last-child::before {
+        content: none;
+    }
+
+    .progtrckr2 .circle {
+        width: 25px;
+        height: 25px;
+    }
+
+    .progtrckr2 .label {
+        margin-left: 10px;
+        font-size: 14px; /* Smaller text size for small devices */
+    }
+}
+
+@media (min-width: 769px) {
+    /* Ensures the layout reverts to horizontal flex on large screens */
+    .progtrckr2 {
+        flex-direction: row;
+    }
+}
+
+
     </style>
     <!-- Start of Step 1 -->
     @if ($currentStep == 1)
@@ -547,21 +677,31 @@
                     <h2 class="fw-bold">Uganda Tourist eVisa • 180 days, Single entry</h2>
                 </div>
             </div>
-            <div class="row g-sm-4 g-3 mt-3">
-                <div class="col-12 overflow-hidden">
-                    <ol class="progtrckr">
-                        <li class="progtrckr-done ">
-                            <h5>Trip Details</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Your Info</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Checkout</h5>
-                        </li>
-                    </ol>
+            <div class="container-fluid w-100">
+                <div class="row">
+                    <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+                        <div class="order-detail mt-3 w-100">
+                            <ol class="progtrckr2">
+                                <li class="progtrckr-done2">
+                                    <div class="circle">
+                                        <span>&#10003;</span> <!-- Checkmark -->
+                                    </div>
+                                    <div class="label">Trip Details</div>
+                                </li>
+                                <li class="progtrckr-todo2">
+                                    <div class="circle">2</div> <!-- Step number -->
+                                    <div class="label">Your Info</div>
+                                </li>
+                                <li class="progtrckr-todo2">
+                                    <div class="circle">3</div>
+                                    <div class="label">Checkout</div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             @livewire('go-to-application-banner')
             <form wire:submit.prevent="AddInfo2">
                 <div class="row g-sm-4 g-3">
@@ -684,19 +824,28 @@
                     <h2 class="fw-bold">Uganda Tourist eVisa • 180 days, Single entry</h2>
                 </div>
             </div>
-            <div class="row g-sm-4 g-3">
-                <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
-                    <ol class="progtrckr">
-                        <li class="progtrckr-done">
-                            <h5>Trip Details</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Your Info</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Checkout</h5>
-                        </li>
-                    </ol>
+            <div class="container-fluid w-100">
+                <div class="row">
+                    <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+                        <div class="order-detail mt-3 w-100">
+                            <ol class="progtrckr2">
+                                <li class="progtrckr-done2">
+                                    <div class="circle">
+                                        <span>&#10003;</span> <!-- Checkmark -->
+                                    </div>
+                                    <div class="label">Trip Details</div>
+                                </li>
+                                <li class="progtrckr-todo2">
+                                    <div class="circle">2</div> <!-- Step number -->
+                                    <div class="label">Your Info</div>
+                                </li>
+                                <li class="progtrckr-todo2">
+                                    <div class="circle">3</div>
+                                    <div class="label">Checkout</div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row g-sm-4 g-3">
@@ -910,19 +1059,28 @@
     <!-- Start of Step 4 -->
     <section class="checkout-section-2 section-lg-space order-detail">
         <div class="container-fluid-lg">
-            <div class="row g-sm-4 g-3">
-                <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
-                    <ol class="progtrckr">
-                        <li class="progtrckr-done">
-                            <h5>Trip Details</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Your Info</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Checkout</h5>
-                        </li>
-                    </ol>
+        <div class="container-fluid w-100">
+                <div class="row">
+                    <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+                        <div class="order-detail mt-3 w-100">
+                            <ol class="progtrckr2">
+                                <li class="progtrckr-done2">
+                                    <div class="circle">
+                                        <span>&#10003;</span> <!-- Checkmark -->
+                                    </div>
+                                    <div class="label">Trip Details</div>
+                                </li>
+                                <li class="progtrckr-done2">
+                                    <div class="circle">2</div> <!-- Step number -->
+                                    <div class="label">Your Info</div>
+                                </li>
+                                <li class="progtrckr-todo2">
+                                    <div class="circle">3</div>
+                                    <div class="label">Checkout</div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
             @livewire('go-to-application-banner')
@@ -936,7 +1094,7 @@
                                         <li>
                                             <div class="checkout-box bg-white">
                                                 <div class="checkout-title">
-                                                    <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Your Personal Details</h4>
+                                                    <h4 style="font-size: 1.50rem;font-weight: 700;line-height: 28px;">Your Passport Information</h4>
                                                 </div>
 
                                                 <div class="checkout-detail">
@@ -1090,19 +1248,28 @@
     <!-- Start of Step 5 -->
     <section class="checkout-section-2 section-lg-space order-detail">
         <div class="container-fluid-lg">
-            <div class="row g-sm-4 g-3">
-                <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xxl-12 overflow-hidden">
-                    <ol class="progtrckr">
-                        <li class="progtrckr-done">
-                            <h5>Trip Details</h5>
-                        </li>
-                        <li class="progtrckr-done">
-                            <h5>Your Info</h5>
-                        </li>
-                        <li class="progtrckr-todo">
-                            <h5>Checkout</h5>
-                        </li>
-                    </ol>
+        <div class="container-fluid w-100">
+                <div class="row">
+                    <div class="col-12 col-xxl-12  col-md-12 col-lg-12 col-sm-12">
+                        <div class="order-detail mt-3 w-100">
+                            <ol class="progtrckr2">
+                                <li class="progtrckr-done2">
+                                    <div class="circle">
+                                        <span>&#10003;</span> <!-- Checkmark -->
+                                    </div>
+                                    <div class="label">Trip Details</div>
+                                </li>
+                                <li class="progtrckr-done2">
+                                    <div class="circle">2</div> <!-- Step number -->
+                                    <div class="label">Your Info</div>
+                                </li>
+                                <li class="progtrckr-todo2">
+                                    <div class="circle">3</div>
+                                    <div class="label">Checkout</div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
             @livewire('go-to-application-banner')
