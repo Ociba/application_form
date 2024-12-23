@@ -5,7 +5,9 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\OrderController;
 
- Route::get('/', function () { return view('welcome');});
+Route::get('/apply-now-test/', function () { return view('welcome');});
+Route::get('/apply-now-test', function () { return view('welcome');});
+Route::get('/', function () { return view('welcome');});
 
 // Define routes for saving session values
 Route::post('/save-session-nationality', [SessionController::class, 'saveNationality'])->name('saveSessionNationality');
